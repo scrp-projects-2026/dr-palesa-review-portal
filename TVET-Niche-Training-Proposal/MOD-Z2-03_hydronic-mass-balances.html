@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)file:///C:/Users/ASUS/Downloads/gemini-code-1791965501776.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOD-Z2-03: Hydronic Reclamation &amp; Mass-Balance Cycles</title>
+    <style>
+        :root {
+            --bg-primary: #0a0e14;
+            --bg-card: #121820;
+            --bg-card-alt: #1a222d;
+            --accent-green: #00e676;
+            --accent-gold: #ffb300;
+            --accent-blue: #00e5ff;
+            --text-primary: #f0f4f8;
+            --text-secondary: #94a3b8;
+            --border-color: #24303f;
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-family);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            max-width: 1600px;
+            max-height: 950px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 30px 40px;
+            background: radial-gradient(circle at top right, #1a2636 0%, var(--bg-primary) 60%);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .brand-logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo::before {
+            content: '';
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background-color: var(--accent-green);
+            border-radius: 2px;
+        }
+
+        .header-center-tools {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .narrate-slide-btn {
+            background: rgba(0, 229, 255, 0.15);
+            border: 1px solid var(--accent-blue);
+            color: var(--accent-blue);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .narrate-slide-btn:hover {
+            background: var(--accent-blue);
+            color: #000;
+        }
+
+        .module-badge {
+            background: rgba(0, 230, 118, 0.1);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .slide-viewport {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            justify-content: center;
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        .slide-subtitle {
+            font-size: 1.05rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            position: relative;
+            transition: border-color 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--accent-green);
+        }
+
+        .card-highlight {
+            border-top: 3px solid var(--accent-green);
+        }
+
+        .card-gold {
+            border-top: 3px solid var(--accent-gold);
+        }
+
+        .card-blue {
+            border-top: 3px solid var(--accent-blue);
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .card-body {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Teachability Narrator Box */
+        .teachability-narrator-box {
+            margin-top: 15px;
+            background: rgba(0, 229, 255, 0.05);
+            border-left: 3px solid var(--accent-blue);
+            padding: 10px 14px;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.88rem;
+            color: var(--text-primary);
+            line-height: 1.45;
+        }
+
+        .teachability-narrator-box strong {
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .formula-box {
+            background: var(--bg-card-alt);
+            border: 1px solid var(--accent-blue);
+            border-radius: 6px;
+            padding: 12px;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1rem;
+            color: var(--accent-blue);
+            margin: 10px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 5px;
+        }
+
+        th, td {
+            padding: 10px 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--bg-card-alt);
+            color: var(--accent-gold);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        td {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+
+        tr:nth-child(even) td {
+            background-color: rgba(255, 255, 255, 0.01);
+        }
+
+        ul.tech-list {
+            list-style: none;
+        }
+
+        ul.tech-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        ul.tech-list li::before {
+            content: '■';
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+            font-size: 0.75rem;
+            top: 2px;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 12px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .controls {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .btn {
+            background: var(--bg-card-alt);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 6px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--accent-green);
+            color: #000;
+            border-color: var(--accent-green);
+        }
+
+        .slide-counter {
+            font-weight: 600;
+            color: var(--accent-gold);
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .title-slide-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .title-slide-content h1 {
+            font-size: 2.8rem;
+            line-height: 1.15;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .meta-table {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 25px;
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-item .label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .meta-item .value {
+            font-size: 1rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="presentation-container">
+        <header>
+            <div class="brand-logo">Lwandile Engineering Projects</div>
+            <div class="header-center-tools">
+                <button class="narrate-slide-btn" id="narrateBtn" onclick="narrateCurrentSlide()">🔊 Read Current Slide Aloud</button>
+                <div class="module-badge">MOD-Z2-03 | NQF 4</div>
+            </div>
+        </header>
+
+        <div class="slide-viewport">
+
+            <!-- SLIDE 1 -->
+            <div class="slide" data-slide-title="Introduction and Framework Overview">
+                <div class="title-slide-content">
+                    <p style="color: var(--accent-green); font-weight: 600; letter-spacing: 2px; margin-bottom: 10px;">TEACHABILITY FRAMEWORK • SCAPUSH PRECISION</p>
+                    <h1>Hydronic Reclamation &amp; Mass-Balance Cycles</h1>
+                    <p class="slide-subtitle" style="text-align: center;">Mastering Fluid Recovery, Closed-Loop Processing &amp; Conservation of Mass</p>
+                    
+                    <div class="meta-table">
+                        <div class="meta-item">
+                            <div class="label">System Architect</div>
+                            <div class="value">Sipho Wiseman Khuzwayo</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="label">Unit Standard</div>
+                            <div class="value">US 116312</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="label">NQF Level</div>
+                            <div class="value">Level 4</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="label">Credits &amp; Weight</div>
+                            <div class="value">16 Credits (20%)</div>
+                        </div>
+                    </div>
+                    <div class="teachability-narrator-box" style="text-align: left; margin-top: 25px;">
+                        <strong>Teachability Narrator:</strong> Welcome to Module Z2-03, structured under the architectural oversight of Sipho Wiseman Khuzwayo and executed through Scapush Precision standards. This module builds core competencies in fluid mass accounting and closed-loop hydronic conservation.
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 2 -->
+            <div class="slide" data-slide-title="Module Overview and Scope">
+                <h2 class="slide-title">Module Overview &amp; Scope</h2>
+                <p class="slide-subtitle">Core Objectives &amp; System Competencies</p>
+                <div class="grid-2">
+                    <div class="card card-highlight">
+                        <div class="card-title">Technical Knowledge Domains</div>
+                        <ul class="tech-list">
+                            <li>Fundamentals of hydronic closed-loop architecture.</li>
+                            <li>Mathematical formulation of mass-balance principles.</li>
+                            <li>Operational frameworks for industrial water reclamation.</li>
+                            <li>Quality assurance, compliance, and environmental standards.</li>
+                        </ul>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Establishes the structural baseline for industrial water stewardship.
+                        </div>
+                    </div>
+                    <div class="card card-gold">
+                        <div class="card-title">Practical Outcomes</div>
+                        <p class="card-body">Engineers and operators will learn to design, monitor, and troubleshoot recirculating fluid systems to optimize water stewardship and prevent process inefficiencies.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Equips operators with hands-on diagnostic capability for real-world fluid networks.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 3 -->
+            <div class="slide" data-slide-title="Fundamental Hydronic Reclamation">
+                <h2 class="slide-title">Fundamental Hydronic Reclamation</h2>
+                <p class="slide-subtitle">Core Concepts &amp; Infrastructure Drivers</p>
+                <div class="grid-3">
+                    <div class="card card-highlight">
+                        <div class="card-title">System Concept</div>
+                        <p class="card-body">Capturing, processing, and re-circulating process water within industrial systems to minimize fresh water draw.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Focuses on minimizing raw water extraction through recycling.
+                        </div>
+                    </div>
+                    <div class="card card-gold">
+                        <div class="card-title">Primary Drivers</div>
+                        <p class="card-body">Resource conservation, operational cost reduction, and compliance with strict zero liquid discharge regulations.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Aligns environmental compliance directly with operational savings.
+                        </div>
+                    </div>
+                    <div class="card card-blue">
+                        <div class="card-title">Key Components</div>
+                        <p class="card-body">Sump units, primary mechanical filtration, buffer storage vessels, and variable-frequency transfer pumps.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Highlights the mechanical hardware essential for fluid recovery.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 4 -->
+            <div class="slide" data-slide-title="System Input and Output Boundary Setting">
+                <h2 class="slide-title">System Input/Output Boundary Setting</h2>
+                <p class="slide-subtitle">Establishing Physical Control Volumes for Mass Accounting</p>
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-title">Control Volume Mapping</div>
+                        <p class="card-body">Defining explicit physical boundaries around the hydronic system to precisely quantify all mass interactions. Every stream crossing the boundary must be metered.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Accurate boundary definition is the absolute foundation of mass conservation.
+                        </div>
+                    </div>
+                    <div class="card card-highlight">
+                        <div class="card-title">Stream Accounting</div>
+                        <ul class="tech-list">
+                            <li><strong>Influent Streams (˙m<sub>in</sub>):</strong> Raw makeup water, chemical dosing, system re-injection.</li>
+                            <li><strong>Effluent Streams (˙m<sub>out</sub>):</strong> Process discharge, deliberate blowdown.</li>
+                            <li><strong>Unmetered Losses:</strong> Atmospheric evaporation, fugitive leaks, sludge purge.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 5 -->
+            <div class="slide" data-slide-title="Core Mass-Balance Governing Equation">
+                <h2 class="slide-title">Core Mass-Balance Governing Equation</h2>
+                <p class="slide-subtitle">First Law Principles applied to Fluid Loops</p>
+                <div class="card card-highlight">
+                    <div class="card-title">Conservation of Mass Principle</div>
+                    <p class="card-body">In any closed or open control volume, mass cannot be created or destroyed. The rate of change of mass inside the system equals the sum of mass entering minus mass exiting.</p>
+                    
+                    <div class="formula-box">
+                        ΔM<sub>system</sub> = Σ ˙m<sub>in</sub> - Σ ˙m<sub>out</sub>
+                    </div>
+
+                    <p class="card-body" style="text-align: center; margin-top: 8px;">
+                        <strong>Steady-State Condition:</strong> ΔM<sub>system</sub> = 0  &nbsp;&amp;implies;&nbsp;  Σ ˙m<sub>in</sub> = Σ ˙m<sub>out</sub>
+                    </p>
+                    <div class="teachability-narrator-box">
+                        <strong>Narrator Insight:</strong> Teaches technicians how steady-state mass balance ensures predictable inventory behavior.
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 6 -->
+            <div class="slide" data-slide-title="Water Contaminant Dynamics">
+                <h2 class="slide-title">Water Contaminant Dynamics</h2>
+                <p class="slide-subtitle">Concentration Cycles &amp; Solute Accumulation</p>
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-title">Solute Accumulation Mechanics</div>
+                        <p class="card-body">As pure water evaporates, dissolved solids remain in circulation. Left unchecked, scaling, pipe fouling, and bio-corrosion accelerate exponentially.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Demonstrates why managing dissolved solids prevents infrastructure degradation.
+                        </div>
+                    </div>
+                    <div class="card card-gold">
+                        <div class="card-title">Cycles of Concentration (CoC)</div>
+                        <p class="card-body">Quantifies how many times a mineral is concentrated relative to raw makeup water:</p>
+                        <div class="formula-box" style="font-size: 0.95rem;">
+                            CoC = [TDS]<sub>Blowdown</sub> / [TDS]<sub>Makeup</sub>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 7 -->
+            <div class="slide" data-slide-title="Blowdown and Makeup Water Calculations">
+                <h2 class="slide-title">Blowdown &amp; Makeup Water Calculations</h2>
+                <p class="slide-subtitle">Preserving Optimal System Equilibrium</p>
+                <div class="grid-2">
+                    <div class="card card-blue">
+                        <div class="card-title">Makeup Water Requirement</div>
+                        <p class="card-body">Offsetting total volumetric losses to maintain stable operational inventory:</p>
+                        <div class="formula-box" style="font-size: 0.9rem;">
+                            ˙m<sub>Makeup</sub> = ˙m<sub>Evaporation</sub> + ˙m<sub>Blowdown</sub> + ˙m<sub>Losses</sub>
+                        </div>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Provides the quantitative formula for replenishing consumed loop volume safely.
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Control Strategies</div>
+                        <ul class="tech-list">
+                            <li>Automated TDS/Conductivity blowdown valves.</li>
+                            <li>Proportional chemical treatment dosing.</li>
+                            <li>Real-time mass-balance error alerting.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 8 -->
+            <div class="slide" data-slide-title="Separation and Filtration Technologies">
+                <h2 class="slide-title">Separation &amp; Filtration Technologies</h2>
+                <p class="slide-subtitle">Multi-Stage Solids &amp; Membrane Processing</p>
+                <div class="grid-3">
+                    <div class="card">
+                        <div class="card-title">Primary Clarification</div>
+                        <p class="card-body">Hydrocyclones, settling clarifiers, and bag filters remove coarse particulate solids (&gt;50 μm).</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Protects downstream pumps from abrasive particulate wear.
+                        </div>
+                    </div>
+                    <div class="card card-highlight">
+                        <div class="card-title">Membrane Filtration</div>
+                        <p class="card-body">Microfiltration (MF), Ultrafiltration (UF), and Reverse Osmosis (RO) strip bacteria and dissolved salts.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Achieves high-purity water polish for sensitive heat exchangers.
+                        </div>
+                    </div>
+                    <div class="card card-gold">
+                        <div class="card-title">Reject Management</div>
+                        <p class="card-body">Handling concentrated brine/sludge streams through mechanical dewatering and thermal evaporators.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Closes the loop on secondary waste disposal safely.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 9 -->
+            <div class="slide" data-slide-title="Energy Consideration in Hydronic Loops">
+                <h2 class="slide-title">Energy Consideration in Hydronic Loops</h2>
+                <p class="slide-subtitle">Coupled Thermal Mass-Energy Balances</p>
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-title">Thermal Energy Retention</div>
+                        <p class="card-body">Reclaimed hot process water carries significant sensible heat back into the loop, directly lowering thermal generation costs.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Links fluid conservation directly with thermal energy efficiency.
+                        </div>
+                    </div>
+                    <div class="card card-blue">
+                        <div class="card-title">Governing Thermal Balance</div>
+                        <p class="card-body">Calculating thermal recovery metrics across exchangers:</p>
+                        <div class="formula-box">
+                            ˙Q = ˙m · C<sub>p</sub> · ΔT
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 10 -->
+            <div class="slide" data-slide-title="Troubleshooting System Deficits">
+                <h2 class="slide-title">Troubleshooting System Deficits</h2>
+                <p class="slide-subtitle">Diagnosing Mass Discrepancies (ΔM ≠ 0)</p>
+                <div class="card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Observed Symptom</th>
+                                <th>Root Cause Failure</th>
+                                <th>Corrective Engineering Protocol</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Unexplained Inventory Drop</strong></td>
+                                <td>Sub-surface line leak or unmetered purge</td>
+                                <td>Perform isolated section hydrostatic pressure tests.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Rapid TDS Spike</strong></td>
+                                <td>Blowdown valve failure or wrong CoC setpoint</td>
+                                <td>Calibrate conductivity probes; service solenoid valves.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Flow Meter Discrepancy</strong></td>
+                                <td>Sensor drift or bio-fouling in pickup tubes</td>
+                                <td>Clean optical/ultrasonic lenses; perform gravimetric checks.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="teachability-narrator-box" style="margin-top: 10px;">
+                        <strong>Narrator Insight:</strong> Systematic troubleshooting ensures quick resolution when mass imbalances occur.
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 11 -->
+            <div class="slide" data-slide-title="Compliance, Standards and Safety">
+                <h2 class="slide-title">Compliance, Standards &amp; Safety</h2>
+                <p class="slide-subtitle">Regulatory Frameworks &amp; Chemical Management</p>
+                <div class="grid-2">
+                    <div class="card card-highlight">
+                        <div class="card-title">Unit Standard Alignment</div>
+                        <ul class="tech-list">
+                            <li><strong>Standard:</strong> US 116312 (NQF Level 4).</li>
+                            <li><strong>Compliance Target:</strong> Strict adherence to local wastewater discharge limits.</li>
+                            <li><strong>Traceability:</strong> Maintaining auditable digital daily mass logs.</li>
+                        </ul>
+                    </div>
+                    <div class="card card-gold">
+                        <div class="card-title">Chemical Safety Protocols</div>
+                        <p class="card-body">Safe storage, dosing, and spill-containment procedures for corrosive scale inhibitors, biocides, and pH adjustment reagents.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Safety protocols protect operating personnel when handling concentrated water treatment chemicals.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 12 -->
+            <div class="slide active" data-slide-title="Module Certification and Execution Governance">
+                <div class="title-slide-content">
+                    <p style="color: var(--accent-green); font-weight: 600; letter-spacing: 2px; margin-bottom: 10px;">MODULE 3 COMPLETE • SCAPUSH PRECISION</p>
+                    <h1 style="font-size: 2.2rem;">Mass-Balance Certification Framework</h1>
+                    <p class="slide-subtitle" style="text-align: center; font-size: 1.3rem; color: #ffffff;">Ready for Practical System Assessment</p>
+                    
+                    <div class="card card-highlight" style="margin-top: 20px; text-align: left;">
+                        <div class="grid-2">
+                            <div>
+                                <p class="card-title" style="font-size: 0.95rem;">System Architect &amp; Contact</p>
+                                <p class="card-body">Sipho Wiseman Khuzwayo</p>
+                                <p class="card-body">siphokhuzwayo12@gmail.com</p>
+                            </div>
+                            <div>
+                                <p class="card-title" style="font-size: 0.95rem;">Execution Governance</p>
+                                <p class="card-body">Precision Alliance Development Pipeline | Just Energy Transition</p>
+                                <p class="card-body">Scapush Precision Execution Standard</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <div>Scapush Precision Execution | Lwandile Engineering Projects</div>
+            <div class="controls">
+                <button class="btn" id="prevBtn" onclick="changeSlide(-1)">Previous</button>
+                <span class="slide-counter" id="slideCounter">12 / 12</span>
+                <button class="btn" id="nextBtn" onclick="changeSlide(1)">Next</button>
+            </div>
+            <div>Architect: Sipho Wiseman Khuzwayo</div>
+        </footer>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const slideCounter = document.getElementById('slideCounter');
+        let isSpeaking = false;
+
+        function showSlide(index) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                document.getElementById('narrateBtn').textContent = '🔊 Read Current Slide Aloud';
+            }
+
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+            slideCounter.textContent = `${index + 1} / ${slides.length}`;
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) {
+                currentSlide = slides.length - 1;
+            } else if (currentSlide >= slides.length) {
+                currentSlide = 0;
+            }
+            showSlide(currentSlide);
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight' || event.key === ' ') {
+                changeSlide(1);
+            } else if (event.key === 'ArrowLeft') {
+                changeSlide(-1);
+            }
+        });
+
+        function narrateCurrentSlide() {
+            if (!('speechSynthesis' in window)) {
+                alert('Text-to-speech is not supported by your browser.');
+                return;
+            }
+
+            const btn = document.getElementById('narrateBtn');
+
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                btn.textContent = '🔊 Read Current Slide Aloud';
+                return;
+            }
+
+            const activeSlideElement = slides[currentSlide];
+            const slideTitle = activeSlideElement.getAttribute('data-slide-title') || `Slide ${currentSlide + 1}`;
+            
+            const textNodes = activeSlideElement.querySelectorAll('h1, h2, h3, .card-title, .card-body, .metric-value, .metric-label, td, li, .teachability-narrator-box, .formula-box');
+            let slideNarration = `Slide ${currentSlide + 1}: ${slideTitle}. `;
+
+            textNodes.forEach(node => {
+                const cleanText = node.innerText.replace(/[\n\r]+/g, ' ').trim();
+                if (cleanText) {
+                    slideNarration += cleanText + '. ';
+                }
+            });
+
+            const utterance = new SpeechSynthesisUtterance(slideNarration);
+            utterance.lang = 'en-US';
+            utterance.volume = 1.0; 
+            utterance.rate = 0.95;  
+            utterance.pitch = 1.0;
+
+            const voices = window.speechSynthesis.getVoices();
+            const preferredVoice = voices.find(v => v.lang.includes('en') && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Microsoft')));
+            if (preferredVoice) {
+                utterance.voice = preferredVoice;
+            }
+
+            utterance.onend = function() {
+                isSpeaking = false;
+                btn.textContent = '🔊 Read Current Slide Aloud';
+            };
+
+            utterance.onerror = function() {
+                isSpeaking = false;
+                btn.textContent = '🔊 Read Current Slide Aloud';
+            };
+
+            isSpeaking = true;
+            btn.textContent = '⏹️ Stop Narration';
+            
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.speak(utterance);
+        }
+
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.onvoiceschanged = function() {
+                window.speechSynthesis.getVoices();
+            };
+        }
+    </script>
+
+</body></html>

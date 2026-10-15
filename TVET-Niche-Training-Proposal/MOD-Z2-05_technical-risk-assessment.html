@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<!-- saved from url=(0072)file:///G:/My%20Drive/first-intake-training-modules/!DOCTYPE%20html.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOD-Z2-05: Technical Risk Assessment &amp; Operational Assurance</title>
+    <style>
+        :root {
+            --bg-primary: #0a0e14;
+            --bg-card: #121820;
+            --bg-card-alt: #1a222d;
+            --accent-green: #00e676;
+            --accent-gold: #ffb300;
+            --accent-blue: #00e5ff;
+            --accent-red: #ff5252;
+            --text-primary: #f0f4f8;
+            --text-secondary: #94a3b8;
+            --border-color: #24303f;
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-family);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            max-width: 1600px;
+            max-height: 950px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 30px 40px;
+            background: radial-gradient(circle at top right, #1a2636 0%, var(--bg-primary) 60%);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .brand-logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo::before {
+            content: '';
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background-color: var(--accent-green);
+            border-radius: 2px;
+        }
+
+        .header-center-tools {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .narrate-slide-btn {
+            background: rgba(0, 229, 255, 0.15);
+            border: 1px solid var(--accent-blue);
+            color: var(--accent-blue);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .narrate-slide-btn:hover {
+            background: var(--accent-blue);
+            color: #000;
+        }
+
+        .module-badge {
+            background: rgba(0, 229, 255, 0.1);
+            border: 1px solid var(--accent-blue);
+            color: var(--accent-blue);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .slide-viewport {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            justify-content: center;
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        .slide-subtitle {
+            font-size: 1.05rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            position: relative;
+            transition: border-color 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--accent-blue);
+        }
+
+        .card-highlight {
+            border-top: 3px solid var(--accent-green);
+        }
+
+        .card-gold {
+            border-top: 3px solid var(--accent-gold);
+        }
+
+        .card-blue {
+            border-top: 3px solid var(--accent-blue);
+        }
+
+        .card-red {
+            border-top: 3px solid var(--accent-red);
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .card-body {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Teachability Narrator Box */
+        .teachability-narrator-box {
+            margin-top: 15px;
+            background: rgba(0, 229, 255, 0.05);
+            border-left: 3px solid var(--accent-blue);
+            padding: 10px 14px;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.88rem;
+            color: var(--text-primary);
+            line-height: 1.45;
+        }
+
+        .teachability-narrator-box strong {
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .metric-value {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--accent-blue);
+            line-height: 1.1;
+            margin: 6px 0;
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .formula-box {
+            background: var(--bg-card-alt);
+            border: 1px solid var(--accent-gold);
+            border-radius: 6px;
+            padding: 10px;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            color: var(--accent-gold);
+            margin: 10px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 5px;
+        }
+
+        th, td {
+            padding: 10px 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--bg-card-alt);
+            color: var(--accent-gold);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        td {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+
+        tr:nth-child(even) td {
+            background-color: rgba(255, 255, 255, 0.01);
+        }
+
+        ul.tech-list {
+            list-style: none;
+        }
+
+        ul.tech-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        ul.tech-list li::before {
+            content: '■';
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+            font-size: 0.75rem;
+            top: 2px;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 12px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .controls {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .btn {
+            background: var(--bg-card-alt);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 6px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--accent-blue);
+            color: #000;
+            border-color: var(--accent-blue);
+        }
+
+        .slide-counter {
+            font-weight: 600;
+            color: var(--accent-gold);
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .title-slide-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .title-slide-content h1 {
+            font-size: 2.8rem;
+            line-height: 1.15;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .meta-table {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 25px;
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-item .label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .meta-item .value {
+            font-size: 1rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="presentation-container">
+        <header>
+            <div class="brand-logo">Lwandile Engineering Projects</div>
+            <div class="header-center-tools">
+                <button class="narrate-slide-btn" id="narrateBtn" onclick="narrateCurrentSlide()">🔊 Read Current Slide Aloud</button>
+                <div class="module-badge">MOD-Z2-05 | NQF 5</div>
+            </div>
+        </header>
+
+        <div class="slide-viewport">
+
+            <!-- SLIDE 1 -->
+            <div class="slide" data-slide-title="Safety, Risk and Operational Integrity Overview">
+                <div class="title-slide-content">
+                    <p style="color: var(--accent-blue); font-weight: 600; letter-spacing: 2px; margin-bottom: 10px;">SAFETY, RISK &amp; OPERATIONAL INTEGRITY • SCAPUSH PRECISION</p>
+                    <h1>Technical Risk Assessment &amp; Operational Assurance</h1>
+                    <p class="slide-subtitle" style="text-align: center;">Continuous Hazard Identification, Asset Safeguarding &amp; Process Safety Management</p>
+                    
+                    <div class="meta-table">
+                        <div class="meta-item">
+                            <div class="label">System Architect</div>
+                            <div class="value">Sipho Wiseman Khuzwayo</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="label">Unit Standard</div>
+                            <div class="value">US 120330 / US 116312</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="label">NQF Level</div>
+                            <div class="value">Level 5</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="label">Credits &amp; Weight</div>
+                            <div class="value">24 Credits (30%)</div>
+                        </div>
+                    </div>
+                    <div class="teachability-narrator-box" style="text-align: left; margin-top: 20px;">
+                        <strong>Teachability Narrator:</strong> Welcome to Module Z2-05, architected under the leadership of Sipho Wiseman Khuzwayo and executed via Scapush Precision standards. This module establishes rigorous process safety management and technical risk evaluation frameworks.
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 2 -->
+            <div class="slide" data-slide-title="Executive Summary and Compliance Scope">
+                <h2 class="slide-title">Executive Summary &amp; Compliance Scope</h2>
+                <p class="slide-subtitle">Zero-Harm Assurance across High-Pressure Industrial Operations</p>
+                <div class="grid-2">
+                    <div class="card card-blue">
+                        <div class="card-title">Operational Safety Mandate</div>
+                        <ul class="tech-list">
+                            <li>Systematic identification of chemical, thermal, and mechanical hazards.</li>
+                            <li>Integration of continuous risk assessments into daily engineering workflows.</li>
+                            <li>Establishment of strict emergency mitigation protocols across local processing units.</li>
+                            <li>Full compliance with the Occupational Health and Safety Act (OHSA) and MHSA standards.</li>
+                        </ul>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Mandates proactive risk management to ensure zero-harm industrial environments.
+                        </div>
+                    </div>
+                    <div class="card card-gold">
+                        <div class="card-title">Module Weight &amp; Impact</div>
+                        <div class="metric-value">30%</div>
+                        <div class="metric-label">Execution Quality Allocation</div>
+                        <p class="card-body" style="margin-top: 6px;">Focuses on continuous risk evaluation, data-driven telemetry assurance, and preventive asset integrity across Kinross and Secunda sites.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Emphasizes high-weight governance for critical engineering assets.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 3 -->
+            <div class="slide" data-slide-title="Continuous Risk Assessment Architecture">
+                <h2 class="slide-title">Continuous Risk Assessment Architecture</h2>
+                <p class="slide-subtitle">Four-Tiered Hazard Identification and Mitigation Engine</p>
+                <div class="grid-3">
+                    <div class="card card-highlight">
+                        <div class="card-title">1. Baseline Assessment</div>
+                        <p class="card-body">Comprehensive profiling of overall site risks, structural integrity, and chemical containment infrastructure.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Establishes foundational safety profiling before plant commissioning.
+                        </div>
+                    </div>
+                    <div class="card card-blue">
+                        <div class="card-title">2. Issue-Based Risk</div>
+                        <p class="card-body">Targeted safety evaluations prior to equipment overhauls, high-pressure line taps, or process modification.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Focuses safety scrutiny on non-routine maintenance operations.
+                        </div>
+                    </div>
+                    <div class="card card-red">
+                        <div class="card-title">3. Continuous Field Risk</div>
+                        <p class="card-body">Shift-level pre-task hazard scans, telemetry anomaly monitoring, and dynamic permit-to-work checks.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Real-time operational vigilance embedded into daily shift rotations.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 4 -->
+            <div class="slide" data-slide-title="Quantitative Risk Rating Index">
+                <h2 class="slide-title">Quantitative Risk Rating Index</h2>
+                <p class="slide-subtitle">Prioritizing Action via Risk Severity Evaluation</p>
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-title">Risk Matrix Calculation</div>
+                        <p class="card-body">Determining criticality ratings for high-pressure boilers, chemical loops, and automated valves:</p>
+                        <div class="formula-box">
+                            Risk Rating = Probability × Severity × Exposure
+                        </div>
+                        <p class="card-body" style="font-size: 0.85rem; text-align: center;">Likelihood of occurrence multiplied by impact severity and duration of operational exposure.</p>
+                    </div>
+                    <div class="card card-red">
+                        <div class="card-title">Action Thresholds</div>
+                        <ul class="tech-list">
+                            <li><strong>High Risk (15-25):</strong> Immediate process shutdown and isolation.</li>
+                            <li><strong>Moderate Risk (8-14):</strong> Mitigate within 24 hours under active supervisor log.</li>
+                            <li><strong>Low Risk (1-7):</strong> Routine maintenance scheduling and trend monitoring.</li>
+                        </ul>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Mathematical risk scoring dictates immediate operational response protocols.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 5 -->
+            <div class="slide" data-slide-title="Hazard Mitigation and Process Control Matrix">
+                <h2 class="slide-title">Hazard Mitigation &amp; Process Control Matrix</h2>
+                <p class="slide-subtitle">Proactive Safeguards for Key Operational Hazards</p>
+                <div class="card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Hazard Domain</th>
+                                <th>Operational Risk Source</th>
+                                <th>Primary Control Measure</th>
+                                <th>Assurance Standard</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Thermal Pressure</strong></td>
+                                <td>Over-pressurization in reactor lines</td>
+                                <td>Automated pressure relief valves &amp; emergency vents</td>
+                                <td>SANS 10227 Pressure Vessel Code</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Chemical Volatility</strong></td>
+                                <td>Biogas leakage &amp; gas accumulation</td>
+                                <td>Continuous ATEX gas sensors &amp; automatic cut-offs</td>
+                                <td>OHSA Hazardous Chemical Substances</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mechanical Failure</strong></td>
+                                <td>High-torque pump seal breach</td>
+                                <td>Vibration telemetry and seal pressure sensors</td>
+                                <td>ISO 10816 Vibration Assessment</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Electrical Arc</strong></td>
+                                <td>Substation switching and high current</td>
+                                <td>Remote racking, lockout/tagout (LOTO), Arc Flash PPE</td>
+                                <td>SANS 10142 Electrical Wiring</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="teachability-narrator-box" style="margin-top: 10px;">
+                        <strong>Narrator Insight:</strong> Rigorous alignment with national and international engineering standards prevents catastrophic failures.
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 6 -->
+            <div class="slide" data-slide-title="Telemetry Data Integrity and Hazard Logging">
+                <h2 class="slide-title">Telemetry Data Integrity &amp; Hazard Logging</h2>
+                <p class="slide-subtitle">US 116312: Continuous Operational Data Collection</p>
+                <div class="grid-2">
+                    <div class="card card-gold">
+                        <div class="card-title">Data Gathering Protocol</div>
+                        <ul class="tech-list">
+                            <li><strong>Sensor Frequency:</strong> Real-time 1-second telemetry interval on critical valves.</li>
+                            <li><strong>Anomaly Detection:</strong> Algorithmic flags on pressure drops or temperature spikes.</li>
+                            <li><strong>Audit Logging:</strong> Immutable timestamping of all safety interventions.</li>
+                        </ul>
+                    </div>
+                    <div class="card card-blue">
+                        <div class="card-title">Validation and Escalation</div>
+                        <p class="card-body">Ensures data collection accuracy by cross-referencing hardware sensors against digital edge devices. Deviations automatically trigger supervisory alerts and automated safety trips.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Continuous digital auditing ensures absolute accountability across process loops.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 7 -->
+            <div class="slide" data-slide-title="Hierarchy of Risk Controls">
+                <h2 class="slide-title">Hierarchy of Risk Controls</h2>
+                <p class="slide-subtitle">Systematic Risk Reduction Strategy</p>
+                <div class="grid-3">
+                    <div class="card card-highlight">
+                        <div class="card-title">1. Elimination &amp; Substitution</div>
+                        <p class="card-body">Replacing hazardous chemical solvents with closed-loop organic bio-agents wherever technically feasible.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Highest tier of safety intervention focusing on hazard removal.
+                        </div>
+                    </div>
+                    <div class="card card-gold">
+                        <div class="card-title">2. Engineering Controls</div>
+                        <p class="card-body">Installing physical interlocks, blast walls, automated isolation valves, and scrubbers.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Isolates personnel from operational hazards mechanically.
+                        </div>
+                    </div>
+                    <div class="card card-red">
+                        <div class="card-title">3. Admin &amp; PPE</div>
+                        <p class="card-body">Standard Operating Procedures, active LOTO protocols, and specialized thermal/chemical gear.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Final line of defense protecting active operational personnel.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 8 -->
+            <div class="slide" data-slide-title="Emergency Preparedness and Response Protocols">
+                <h2 class="slide-title">Emergency Preparedness &amp; Response Protocols</h2>
+                <p class="slide-subtitle">Rapid Incident Command &amp; Isolation Chains</p>
+                <div class="grid-2">
+                    <div class="card card-red">
+                        <div class="card-title">Emergency Response Levels</div>
+                        <ul class="tech-list">
+                            <li><strong>Level 1 (Local):</strong> Minor leak contained at unit level via automated shutoff.</li>
+                            <li><strong>Level 2 (Plant-wide):</strong> Full section evacuation, automated fire suppression active.</li>
+                            <li><strong>Level 3 (External):</strong> Coordination with regional Kinross/Secunda emergency services.</li>
+                        </ul>
+                    </div>
+                    <div class="card card-highlight">
+                        <div class="card-title">Containment Protocols</div>
+                        <p class="card-body">Secondary containment berms retain 110% of chemical tank volumes. Emergency flare systems automatically neutralize gas surges during sudden over-pressure scenarios.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Clear multi-tier emergency response protects both plant infrastructure and regional communities.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 9 -->
+            <div class="slide" data-slide-title="Root Cause Analysis Framework">
+                <h2 class="slide-title">Root Cause Analysis (RCA) Framework</h2>
+                <p class="slide-subtitle">Post-Incident Learning and Non-Conformance Remediation</p>
+                <div class="card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>RCA Methodology</th>
+                                <th>Application Area</th>
+                                <th>Action Output</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>5-Why Analysis</strong></td>
+                                <td>Operational trips, minor mechanical leaks, sensor failures</td>
+                                <td>Procedural revision and immediate maintenance corrective action</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Fault Tree Analysis (FTA)</strong></td>
+                                <td>High-pressure boundary breaches, power loss, control failure</td>
+                                <td>Engineering design modification and safety redundancy addition</td>
+                            </tr>
+                            <tr>
+                                <td><strong>HAZOP Study</strong></td>
+                                <td>Major process flow changes and piping design updates</td>
+                                <td>Updated Piping &amp; Instrumentation Diagrams (P&amp;IDs) and hazards log</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="teachability-narrator-box" style="margin-top: 10px;">
+                        <strong>Narrator Insight:</strong> Systematic RCA transforms near-misses and incidents into permanent engineering improvements.
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 10 -->
+            <div class="slide" data-slide-title="Permit to Work and Lockout Tagout">
+                <h2 class="slide-title">Permit to Work (PTW) &amp; Lockout/Tagout</h2>
+                <p class="slide-subtitle">Mandatory Safety Clearance for High-Risk Tasks</p>
+                <div class="grid-2">
+                    <div class="card card-blue">
+                        <div class="card-title">Digital PTW Integration</div>
+                        <p class="card-body">Hot work, confined space entry, and electrical isolation require dual-key digital sign-offs prior to physical energy isolation verification.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Eliminates unauthorized equipment access during active maintenance cycles.
+                        </div>
+                    </div>
+                    <div class="card card-gold">
+                        <div class="card-title">Zero Energy State Verification</div>
+                        <ul class="tech-list">
+                            <li><strong>Electrical Isolation:</strong> Physical breaker lock and voltage test.</li>
+                            <li><strong>Hydraulic/Pneumatic:</strong> Bleed-off pressure gauges verified at zero.</li>
+                            <li><strong>Chemical Lines:</strong> Blind flange insertion and double block-and-bleed.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 11 -->
+            <div class="slide" data-slide-title="Safety Culture and Operational Training">
+                <h2 class="slide-title">Safety Culture &amp; Operational Training</h2>
+                <p class="slide-subtitle">Building High-Reliability Teams across Operations</p>
+                <div class="grid-3">
+                    <div class="card card-highlight">
+                        <div class="card-title">Daily Toolbox Talks</div>
+                        <div class="metric-value">100%</div>
+                        <p class="card-body">Mandatory shift-start safety alignments and hazard reviews before work commencement.</p>
+                    </div>
+                    <div class="card card-gold">
+                        <div class="card-title">Near-Miss Reporting</div>
+                        <div class="metric-value">&gt; 50/yr</div>
+                        <p class="card-body">Encouraging proactive hazard reporting without fear of reprisal to prevent major incidents.</p>
+                    </div>
+                    <div class="card card-blue">
+                        <div class="card-title">Certified Personnel</div>
+                        <div class="metric-value">NQF 5</div>
+                        <p class="card-body">Continuous skill validation for risk assessors and emergency response coordinators.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 12 -->
+            <div class="slide active" data-slide-title="Module Certification and Risk Governance">
+                <div class="title-slide-content">
+                    <p style="color: var(--accent-blue); font-weight: 600; letter-spacing: 2px; margin-bottom: 10px;">MODULE 5 COMPLETE • SCAPUSH PRECISION</p>
+                    <h1 style="font-size: 2.2rem;">Technical Risk Assessment Framework Certified</h1>
+                    <p class="slide-subtitle" style="text-align: center; font-size: 1.3rem; color: #ffffff;">Zero Harm, High Reliability &amp; Continuous Operational Assurance</p>
+                    
+                    <div class="card card-blue" style="margin-top: 20px; text-align: left;">
+                        <div class="grid-2">
+                            <div>
+                                <p class="card-title" style="font-size: 0.95rem;">System Architect &amp; Contact</p>
+                                <p class="card-body">Sipho Wiseman Khuzwayo</p>
+                                <p class="card-body">siphokhuzwayo12@gmail.com</p>
+                            </div>
+                            <div>
+                                <p class="card-title" style="font-size: 0.95rem;">Execution Governance</p>
+                                <p class="card-body">Precision Alliance Operational Assurance | Risk Governance</p>
+                                <p class="card-body">Scapush Precision Execution Standard</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <div>Scapush Precision Execution | Lwandile Engineering Projects</div>
+            <div class="controls">
+                <button class="btn" id="prevBtn" onclick="changeSlide(-1)">Previous</button>
+                <span class="slide-counter" id="slideCounter">12 / 12</span>
+                <button class="btn" id="nextBtn" onclick="changeSlide(1)">Next</button>
+            </div>
+            <div>Architect: Sipho Wiseman Khuzwayo</div>
+        </footer>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const slideCounter = document.getElementById('slideCounter');
+        let isSpeaking = false;
+
+        function showSlide(index) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                document.getElementById('narrateBtn').textContent = '🔊 Read Current Slide Aloud';
+            }
+
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+            slideCounter.textContent = `${index + 1} / ${slides.length}`;
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) {
+                currentSlide = slides.length - 1;
+            } else if (currentSlide >= slides.length) {
+                currentSlide = 0;
+            }
+            showSlide(currentSlide);
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight' || event.key === ' ') {
+                changeSlide(1);
+            } else if (event.key === 'ArrowLeft') {
+                changeSlide(-1);
+            }
+        });
+
+        function narrateCurrentSlide() {
+            if (!('speechSynthesis' in window)) {
+                alert('Text-to-speech is not supported by your browser.');
+                return;
+            }
+
+            const btn = document.getElementById('narrateBtn');
+
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                btn.textContent = '🔊 Read Current Slide Aloud';
+                return;
+            }
+
+            const activeSlideElement = slides[currentSlide];
+            const slideTitle = activeSlideElement.getAttribute('data-slide-title') || `Slide ${currentSlide + 1}`;
+            
+            const textNodes = activeSlideElement.querySelectorAll('h1, h2, h3, .card-title, .card-body, .metric-value, .metric-label, td, li, .teachability-narrator-box, .formula-box');
+            let slideNarration = `Slide ${currentSlide + 1}: ${slideTitle}. `;
+
+            textNodes.forEach(node => {
+                const cleanText = node.innerText.replace(/[\n\r]+/g, ' ').trim();
+                if (cleanText) {
+                    slideNarration += cleanText + '. ';
+                }
+            });
+
+            const utterance = new SpeechSynthesisUtterance(slideNarration);
+            utterance.lang = 'en-US';
+            utterance.volume = 1.0; 
+            utterance.rate = 0.95;  
+            utterance.pitch = 1.0;
+
+            const voices = window.speechSynthesis.getVoices();
+            const preferredVoice = voices.find(v => v.lang.includes('en') && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Microsoft')));
+            if (preferredVoice) {
+                utterance.voice = preferredVoice;
+            }
+
+            utterance.onend = function() {
+                isSpeaking = false;
+                btn.textContent = '🔊 Read Current Slide Aloud';
+            };
+
+            utterance.onerror = function() {
+                isSpeaking = false;
+                btn.textContent = '🔊 Read Current Slide Aloud';
+            };
+
+            isSpeaking = true;
+            btn.textContent = '⏹️ Stop Narration';
+            
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.speak(utterance);
+        }
+
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.onvoiceschanged = function() {
+                window.speechSynthesis.getVoices();
+            };
+        }
+    </script>
+
+</body></html>

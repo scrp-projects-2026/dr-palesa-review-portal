@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)file:///C:/Users/ASUS/Downloads/gemini-code-1791965997672.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOD-Z2-04: Advanced Process Automation &amp; ArIoT Control Architecture</title>
+    <style>
+        :root {
+            --bg-primary: #0a0e14;
+            --bg-card: #121820;
+            --bg-card-alt: #1a222d;
+            --accent-green: #00e676;
+            --accent-gold: #ffb300;
+            --accent-blue: #00e5ff;
+            --text-primary: #f0f4f8;
+            --text-secondary: #94a3b8;
+            --border-color: #24303f;
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-family);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            max-width: 1600px;
+            max-height: 950px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 30px 40px;
+            background: radial-gradient(circle at top right, #1a2636 0%, var(--bg-primary) 60%);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .brand-logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo::before {
+            content: '';
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background-color: var(--accent-green);
+            border-radius: 2px;
+        }
+
+        .header-center-tools {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .narrate-slide-btn {
+            background: rgba(0, 229, 255, 0.15);
+            border: 1px solid var(--accent-blue);
+            color: var(--accent-blue);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .narrate-slide-btn:hover {
+            background: var(--accent-blue);
+            color: #000;
+        }
+
+        .module-badge {
+            background: rgba(0, 230, 118, 0.1);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .slide-viewport {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            justify-content: center;
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        .slide-subtitle {
+            font-size: 1.05rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            position: relative;
+            transition: border-color 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--accent-green);
+        }
+
+        .card-highlight {
+            border-top: 3px solid var(--accent-green);
+        }
+
+        .card-gold {
+            border-top: 3px solid var(--accent-gold);
+        }
+
+        .card-blue {
+            border-top: 3px solid var(--accent-blue);
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .card-body {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Teachability Narrator Box */
+        .teachability-narrator-box {
+            margin-top: 15px;
+            background: rgba(0, 229, 255, 0.05);
+            border-left: 3px solid var(--accent-blue);
+            padding: 10px 14px;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.88rem;
+            color: var(--text-primary);
+            line-height: 1.45;
+        }
+
+        .teachability-narrator-box strong {
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .metric-value {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--accent-green);
+            line-height: 1.1;
+            margin: 6px 0;
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 5px;
+        }
+
+        th, td {
+            padding: 10px 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--bg-card-alt);
+            color: var(--accent-gold);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        td {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+
+        tr:nth-child(even) td {
+            background-color: rgba(255, 255, 255, 0.01);
+        }
+
+        ul.tech-list {
+            list-style: none;
+        }
+
+        ul.tech-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        ul.tech-list li::before {
+            content: '■';
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+            font-size: 0.75rem;
+            top: 2px;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 12px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .controls {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .btn {
+            background: var(--bg-card-alt);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 6px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--accent-green);
+            color: #000;
+            border-color: var(--accent-green);
+        }
+
+        .slide-counter {
+            font-weight: 600;
+            color: var(--accent-gold);
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .title-slide-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .title-slide-content h1 {
+            font-size: 2.8rem;
+            line-height: 1.15;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .meta-table {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 25px;
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-item .label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .meta-item .value {
+            font-size: 1rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="presentation-container">
+        <header>
+            <div class="brand-logo">Lwandile Engineering Projects</div>
+            <div class="header-center-tools">
+                <button class="narrate-slide-btn" id="narrateBtn" onclick="narrateCurrentSlide()">🔊 Read Current Slide Aloud</button>
+                <div class="module-badge">MOD-Z2-04 | NQF 4</div>
+            </div>
+        </header>
+
+        <div class="slide-viewport">
+
+            <!-- SLIDE 1 -->
+            <div class="slide" data-slide-title="Introduction and Framework Overview">
+                <div class="title-slide-content">
+                    <p style="color: var(--accent-green); font-weight: 600; letter-spacing: 2px; margin-bottom: 10px;">TEACHABILITY FRAMEWORK • SCAPUSH PRECISION</p>
+                    <h1>Advanced Process Automation &amp; ArIoT Control Architecture</h1>
+                    <p class="slide-subtitle" style="text-align: center;">Industrial Telemetry, PLC Logic, Edge Computing &amp; Predictive Monitoring</p>
+                    
+                    <div class="meta-table">
+                        <div class="meta-item">
+                            <div class="label">System Architect</div>
+                            <div class="value">Sipho Wiseman Khuzwayo</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="label">SETA Standard</div>
+                            <div class="value">US 243058</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="label">NQF Level</div>
+                            <div class="value">Level 4</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="label">Credits &amp; Weight</div>
+                            <div class="value">18 Credits (20%)</div>
+                        </div>
+                    </div>
+                    <div class="teachability-narrator-box" style="text-align: left; margin-top: 25px;">
+                        <strong>Teachability Narrator:</strong> Welcome to Module Z2-04, architected by Sipho Wiseman Khuzwayo and executed under Scapush Precision. This module masters industrial automation, PLC architecture, and ArIoT network telemetry.
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 2 -->
+            <div class="slide" data-slide-title="Executive Summary and Automation Intent">
+                <h2 class="slide-title">Executive Summary &amp; Automation Intent</h2>
+                <p class="slide-subtitle">Autonomous Process Execution across Microgrid &amp; Reclamation Systems</p>
+                <div class="grid-2">
+                    <div class="card card-highlight">
+                        <div class="card-title">ArIoT Architecture Objective</div>
+                        <p class="card-body">Integrates field instrumentation, programmable logic controllers (PLCs), and edge computing gateways into a unified ArIoT network to enable real-time telemetry, predictive maintenance, and closed-loop process control.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Unifies field hardware with smart edge intelligence for seamless industrial control.
+                        </div>
+                    </div>
+                    <div class="card card-gold">
+                        <div class="card-title">System Reliability Benchmark</div>
+                        <div class="metric-value">99.8%</div>
+                        <div class="metric-label">Uptime Target</div>
+                        <p class="card-body" style="margin-top: 8px;">Eliminates manual override requirements, reduces emergency shutdown occurrences, and guarantees sub-second reaction times for critical safety interlocks.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Highlights high-reliability performance targets required for mission-critical engineering sites.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 3 -->
+            <div class="slide" data-slide-title="Automation Control Pyramid Hierarchy">
+                <h2 class="slide-title">Automation Control Pyramid Hierarchy</h2>
+                <p class="slide-subtitle">From Physical Sensors to Cloud Predictive Intelligence</p>
+                <div class="card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Level</th>
+                                <th>System Layer</th>
+                                <th>Hardware / Software Units</th>
+                                <th>Operational Responsibilities</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Level 4</strong></td>
+                                <td>Cloud Analytics &amp; Enterprise</td>
+                                <td>ArIoT Cloud Dashboards &amp; Historians</td>
+                                <td>Long-term data logging, predictive modeling, &amp; ROI optimization.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Level 3</strong></td>
+                                <td>SCADA / HMI Supervision</td>
+                                <td>Touchscreen HMIs &amp; Local Servers</td>
+                                <td>Visual process monitoring, manual overrides, &amp; central alarming.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Level 2</strong></td>
+                                <td>Direct Process Control</td>
+                                <td>Industrial PLCs &amp; Edge Gateways</td>
+                                <td>Real-time execution of ladder logic, PID loops, &amp; safety interlocks.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Level 1</strong></td>
+                                <td>Field Sensors &amp; Actuators</td>
+                                <td>4-20mA Probes, Modbus Meters, Solenoids</td>
+                                <td>Direct physical parameter sensing &amp; control output actuation.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="teachability-narrator-box" style="margin-top: 10px;">
+                        <strong>Narrator Insight:</strong> Clear layer segregation ensures deterministic data flow and robust site safety.
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 4 -->
+            <div class="slide" data-slide-title="Industrial Communication Protocols">
+                <h2 class="slide-title">Industrial Communication Protocols</h2>
+                <p class="slide-subtitle">Deterministic Communication for Microgrid Systems</p>
+                <div class="grid-3">
+                    <div class="card card-highlight">
+                        <div class="card-title">Modbus TCP/RTU</div>
+                        <p class="card-body">Primary interface for energy meters, VFD drives, and gas analyzers. Provides robust RS-485 and Ethernet telemetry.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Standardized industrial field bus connectivity.
+                        </div>
+                    </div>
+                    <div class="card card-highlight">
+                        <div class="card-title">MQTT / TLS Publish Protocol</div>
+                        <p class="card-body">Lightweight, encrypted messaging protocol connecting edge controllers to cloud servers via cellular and Wi-Fi networks.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Secure, low-bandwidth telemetry for cloud synchronization.
+                        </div>
+                    </div>
+                    <div class="card card-highlight">
+                        <div class="card-title">Analog 4-20mA HART</div>
+                        <p class="card-body">Fail-safe field instrument connections for pressure, pH, temperature, and ultrasonic level transmitters with line diagnostics.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Tried-and-tested analog loops with built-in fault detection.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 5 -->
+            <div class="slide" data-slide-title="PLC Closed-Loop Control Algorithms">
+                <h2 class="slide-title">PLC Closed-Loop Control Algorithms</h2>
+                <p class="slide-subtitle">Proportional-Integral-Derivative (PID) Dosing &amp; Mixing</p>
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-title">Precision Parameter Tuning</div>
+                        <ul class="tech-list">
+                            <li><strong>Digester Thermal Loop:</strong> Modulates heat exchanger valve positioning to hold slurry at exactly 37°C (±0.5°C).</li>
+                            <li><strong>Fertigation EC/pH Control:</strong> Fine-tunes Venturi injection solenoids to prevent crop nutrient shock.</li>
+                            <li><strong>Scrubber Pressure Balancing:</strong> Dynamically adjusts gas compressor speeds to match Co-Gen demand.</li>
+                        </ul>
+                    </div>
+                    <div class="card card-blue">
+                        <div class="card-title">Anti-Windup &amp; Safety Fail-Safes</div>
+                        <p class="card-body">Integrates anti-windup algorithms on integral feedback paths to prevent overshoot during sudden load shifts. Includes watchdog timer resets to trigger safe state defaults within 50 milliseconds of controller isolation.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Advanced PID tuning guarantees stable reaction kinetics under variable field loads.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 6 -->
+            <div class="slide" data-slide-title="ArIoT Edge Node Architecture">
+                <h2 class="slide-title">ArIoT Edge Node Architecture</h2>
+                <p class="slide-subtitle">Local Computing &amp; Offline System Resilience</p>
+                <div class="card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Edge Subsystem</th>
+                                <th>Hardware Standard</th>
+                                <th>Functionality &amp; Redundancy</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Edge Processing Unit</strong></td>
+                                <td>Quad-Core Industrial ARM Cortex-A72</td>
+                                <td>Executes local AI anomaly detection models and caches up to 30 days of offline process logs.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Power Continuity</strong></td>
+                                <td>24V DC LiFePO4 Battery Buffer</td>
+                                <td>Sustains critical control nodes and telemetry for up to 12 hours during grid blackout events.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Security Architecture</strong></td>
+                                <td>Hardware TPM 2.0 Encryption Module</td>
+                                <td>Secures communication channels against unauthorized command injection or malicious firmware updates.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Environmental Enclosure</strong></td>
+                                <td>IP66 Stainless Steel Cabinet</td>
+                                <td>Protects sensitive processing units against dust, moisture, and extreme temperature fluctuations.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="teachability-narrator-box" style="margin-top: 10px;">
+                        <strong>Narrator Insight:</strong> Ensures edge autonomy and cybersecurity compliance across isolated agricultural sites.
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 7 -->
+            <div class="slide" data-slide-title="Predictive Maintenance and Asset Health">
+                <h2 class="slide-title">Predictive Maintenance &amp; Asset Health</h2>
+                <p class="slide-subtitle">Vibration, Thermal, and Electrical Signature Analysis</p>
+                <div class="grid-2">
+                    <div class="card card-gold">
+                        <div class="metric-label">Unscheduled Downtime Reduction</div>
+                        <div class="metric-value">75%</div>
+                        <div class="metric-label">Target Maintenance Metric</div>
+                        <div class="teachability-narrator-box" style="margin-top: 15px;">
+                            <strong>Narrator Insight:</strong> Predictive analytics transform reactive maintenance into proactive asset protection.
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Machine Learning Diagnostics</div>
+                        <ul class="tech-list">
+                            <li><strong>Bearing Wear Tracking:</strong> Tri-axial accelerometers detect early bearing flaking on digester agitators.</li>
+                            <li><strong>Pump Cavitation Alerts:</strong> High-frequency sound signature monitoring flags pump suction blockages.</li>
+                            <li><strong>Thermal Hotspot Sensing:</strong> Infrared sensors monitor electrical control cabinets for loose terminal connections.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 8 -->
+            <div class="slide" data-slide-title="Alarm Management and Safety Interlocks">
+                <h2 class="slide-title">Alarm Management &amp; Safety Interlocks</h2>
+                <p class="slide-subtitle">Multi-Tier Escalation Protocols and Hazard Mitigation</p>
+                <div class="grid-3">
+                    <div class="card">
+                        <div class="card-title">Priority 1: Critical Emergency</div>
+                        <p class="card-body">Gas leak detection (&gt;0.5% CH4) triggers immediate main solenoid isolation, flare activation, and SMS alerts.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Immediate automated shutdown during hazardous leaks.
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Priority 2: Process Warning</div>
+                        <p class="card-body">Filter pressure differential exceeding 1.8 bar triggers automated backwashing and flags HMI warning notices.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Preventive intervention before equipment tripping occurs.
+                        </div>
+                    </div>
+                    <div class="card card-highlight">
+                        <div class="card-title">Priority 3: Advisory Notice</div>
+                        <p class="card-body">Minor pH or temperature drifts automatically log in history logs and queue routine maintenance checks.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Routine logging for long-term optimization.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 9 -->
+            <div class="slide" data-slide-title="SCADA Dashboard and HMI Interface">
+                <h2 class="slide-title">SCADA Dashboard &amp; HMI Interface</h2>
+                <p class="slide-subtitle">High-Performance Visual Design for Operators</p>
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-title">Operator Interface Principles</div>
+                        <ul class="tech-list">
+                            <li><strong>Greyscale Process Diagrams:</strong> Low-contrast backgrounds reduce visual fatigue; vivid colors highlight alarm conditions.</li>
+                            <li><strong>One-Touch Navigation:</strong> Direct panel access to critical valves, pump overrides, and loop setpoints.</li>
+                            <li><strong>Trend Analysis Displays:</strong> Real-time and historical plotting for pH, temperature, pressure, and gas flow rates.</li>
+                        </ul>
+                    </div>
+                    <div class="card card-gold">
+                        <div class="card-title">Remote Mobile Telemetry</div>
+                        <p class="card-body">Encrypted mobile dashboard app grants site engineers full supervisory visibility and secure remote reset capabilities for non-critical alerts across Kinross and Secunda operations.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Empowers remote engineering oversight adhering to Sipho Wiseman Khuzwayo's architecture.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 10 -->
+            <div class="slide" data-slide-title="Automation Calibration and Maintenance">
+                <h2 class="slide-title">Automation Calibration &amp; Maintenance</h2>
+                <p class="slide-subtitle">SOPs for Instrument Accuracy and Control Reliability</p>
+                <div class="card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Instrumentation Unit</th>
+                                <th>Calibration Schedule</th>
+                                <th>Standard Maintenance Task</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>pH &amp; ORP Sensors</strong></td>
+                                <td>Bi-Weekly</td>
+                                <td>Clean glass electrodes; perform two-point buffer calibration (pH 4.0 &amp; 7.0).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Infrared CH<sub>4</sub> / H<sub>2</sub>S Gas Analyzers</strong></td>
+                                <td>Monthly</td>
+                                <td>Perform zero-point purge and span gas verification testing using calibrated standard mixtures.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ultrasonic Level Meters</strong></td>
+                                <td>Quarterly</td>
+                                <td>Inspect transceivers for condensation or buildup; verify physical distance measurements.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Emergency Shutdown Valves</strong></td>
+                                <td>Semi-Annually</td>
+                                <td>Execute partial-stroke testing to confirm seal seat integrity and fast actuator actuation speed.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="teachability-narrator-box" style="margin-top: 10px;">
+                        <strong>Narrator Insight:</strong> Regular calibration schedules maintain high data fidelity and regulatory compliance.
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 11 -->
+            <div class="slide" data-slide-title="Capital Investment and Automation Financials">
+                <h2 class="slide-title">Capital Investment &amp; Automation Financials</h2>
+                <p class="slide-subtitle">CAPEX Breakdown for ArIoT Control Architecture</p>
+                <div class="grid-3">
+                    <div class="card card-highlight">
+                        <div class="card-title">PLCs, HMIs &amp; Field Control</div>
+                        <div class="metric-value">ZAR 310k</div>
+                        <p class="card-body">Industrial PLCs, IP66 control panels, touch HMIs, and regulated 24V power supplies.</p>
+                    </div>
+                    <div class="card card-highlight">
+                        <div class="card-title">ArIoT Edge Gateways &amp; Sensors</div>
+                        <div class="metric-value">ZAR 220k</div>
+                        <p class="card-body">Edge computing nodes, Modbus meters, gas sensors, and vibration transmitters.</p>
+                    </div>
+                    <div class="card card-highlight">
+                        <div class="card-title">SCADA Software &amp; Integration</div>
+                        <div class="metric-value">ZAR 160k</div>
+                        <p class="card-body">Software licensing, cloud integration, custom dashboard engineering, and field testing.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 12 -->
+            <div class="slide active" data-slide-title="Module Certification and Execution Governance">
+                <div class="title-slide-content">
+                    <p style="color: var(--accent-green); font-weight: 600; letter-spacing: 2px; margin-bottom: 10px;">MODULE 4 COMPLETE • SCAPUSH PRECISION</p>
+                    <h1 style="font-size: 2.2rem;">Process Automation Framework Certified</h1>
+                    <p class="slide-subtitle" style="text-align: center; font-size: 1.3rem; color: #ffffff;">Fully Autonomous, Reliable &amp; Cloud-Connected</p>
+                    
+                    <div class="card card-highlight" style="margin-top: 20px; text-align: left;">
+                        <div class="grid-2">
+                            <div>
+                                <p class="card-title" style="font-size: 0.95rem;">System Architect &amp; Contact</p>
+                                <p class="card-body">Sipho Wiseman Khuzwayo</p>
+                                <p class="card-body">siphokhuzwayo12@gmail.com</p>
+                            </div>
+                            <div>
+                                <p class="card-title" style="font-size: 0.95rem;">Execution Governance</p>
+                                <p class="card-body">Precision Alliance Development Pipeline | Just Energy Transition</p>
+                                <p class="card-body">Scapush Precision Execution Standard</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <div>Scapush Precision Execution | Lwandile Engineering Projects</div>
+            <div class="controls">
+                <button class="btn" id="prevBtn" onclick="changeSlide(-1)">Previous</button>
+                <span class="slide-counter" id="slideCounter">12 / 12</span>
+                <button class="btn" id="nextBtn" onclick="changeSlide(1)">Next</button>
+            </div>
+            <div>Architect: Sipho Wiseman Khuzwayo</div>
+        </footer>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const slideCounter = document.getElementById('slideCounter');
+        let isSpeaking = false;
+
+        function showSlide(index) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                document.getElementById('narrateBtn').textContent = '🔊 Read Current Slide Aloud';
+            }
+
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+            slideCounter.textContent = `${index + 1} / ${slides.length}`;
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) {
+                currentSlide = slides.length - 1;
+            } else if (currentSlide >= slides.length) {
+                currentSlide = 0;
+            }
+            showSlide(currentSlide);
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight' || event.key === ' ') {
+                changeSlide(1);
+            } else if (event.key === 'ArrowLeft') {
+                changeSlide(-1);
+            }
+        });
+
+        function narrateCurrentSlide() {
+            if (!('speechSynthesis' in window)) {
+                alert('Text-to-speech is not supported by your browser.');
+                return;
+            }
+
+            const btn = document.getElementById('narrateBtn');
+
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                btn.textContent = '🔊 Read Current Slide Aloud';
+                return;
+            }
+
+            const activeSlideElement = slides[currentSlide];
+            const slideTitle = activeSlideElement.getAttribute('data-slide-title') || `Slide ${currentSlide + 1}`;
+            
+            const textNodes = activeSlideElement.querySelectorAll('h1, h2, h3, .card-title, .card-body, .metric-value, .metric-label, td, li, .teachability-narrator-box');
+            let slideNarration = `Slide ${currentSlide + 1}: ${slideTitle}. `;
+
+            textNodes.forEach(node => {
+                const cleanText = node.innerText.replace(/[\n\r]+/g, ' ').trim();
+                if (cleanText) {
+                    slideNarration += cleanText + '. ';
+                }
+            });
+
+            const utterance = new SpeechSynthesisUtterance(slideNarration);
+            utterance.lang = 'en-US';
+            utterance.volume = 1.0; 
+            utterance.rate = 0.95;  
+            utterance.pitch = 1.0;
+
+            const voices = window.speechSynthesis.getVoices();
+            const preferredVoice = voices.find(v => v.lang.includes('en') && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Microsoft')));
+            if (preferredVoice) {
+                utterance.voice = preferredVoice;
+            }
+
+            utterance.onend = function() {
+                isSpeaking = false;
+                btn.textContent = '🔊 Read Current Slide Aloud';
+            };
+
+            utterance.onerror = function() {
+                isSpeaking = false;
+                btn.textContent = '🔊 Read Current Slide Aloud';
+            };
+
+            isSpeaking = true;
+            btn.textContent = '⏹️ Stop Narration';
+            
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.speak(utterance);
+        }
+
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.onvoiceschanged = function() {
+                window.speechSynthesis.getVoices();
+            };
+        }
+    </script>
+
+</body></html>

@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)file:///C:/Users/ASUS/Downloads/gemini-code-1791988357881.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JET Window 4 Master Runbook &amp; Governance Manual | Scapush Precision</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./JET Window 4 Master Runbook &amp; Governance Manual _ Scapush Precision_files/css2" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #050B14;
+            --bg-card: #0A1628;
+            --bg-card-hover: #10223D;
+            --sunny-gold: #FFB800;
+            --sunny-gold-glow: rgba(255, 184, 0, 0.25);
+            --sunny-gold-dark: #D99B00;
+            --teal-accent: #0D9488;
+            --teal-bright: #14B8A6;
+            --teal-glow: rgba(20, 184, 166, 0.15);
+            --border-color: rgba(20, 184, 166, 0.25);
+            --border-light: rgba(255, 255, 255, 0.08);
+            --text-primary: #FFFFFF;
+            --text-secondary: #94A3B8;
+            --text-muted: #64748B;
+            --font-heading: 'Space Grotesk', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 10%, rgba(255, 184, 0, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(13, 148, 136, 0.08) 0%, transparent 40%);
+        }
+
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            max-width: 1450px;
+            max-height: 920px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 25px 35px;
+            background: radial-gradient(circle at top right, #0A1628 0%, var(--bg-main) 70%);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 12px;
+        }
+
+        .brand-logo {
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo span {
+            color: var(--sunny-gold);
+        }
+
+        .brand-logo::before {
+            content: '';
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background-color: var(--sunny-gold);
+            border-radius: 2px;
+        }
+
+        .header-tools {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .narrate-btn {
+            background: rgba(20, 184, 166, 0.15);
+            border: 1px solid var(--teal-bright);
+            color: var(--teal-bright);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .narrate-btn:hover {
+            background: var(--teal-bright);
+            color: #000;
+        }
+
+        .module-badge {
+            background: rgba(255, 184, 0, 0.1);
+            border: 1px solid var(--sunny-gold);
+            color: var(--sunny-gold);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .slide-viewport {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 0;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            justify-content: center;
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+        }
+
+        .slide-subtitle {
+            font-size: 1rem;
+            color: var(--teal-bright);
+            margin-bottom: 18px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 18px;
+            position: relative;
+            transition: border-color 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--teal-accent);
+        }
+
+        .card-gold {
+            border-top: 3px solid var(--sunny-gold);
+        }
+
+        .card-teal {
+            border-top: 3px solid var(--teal-bright);
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: var(--sunny-gold);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .card-body {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+        }
+
+        .teachability-box {
+            margin-top: 12px;
+            background: rgba(20, 184, 166, 0.05);
+            border-left: 3px solid var(--teal-bright);
+            padding: 8px 12px;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.83rem;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .teachability-box strong {
+            color: var(--teal-bright);
+            text-transform: uppercase;
+            font-size: 0.72rem;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 5px;
+        }
+
+        th, td {
+            padding: 8px 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        th {
+            background-color: rgba(13, 148, 136, 0.15);
+            color: var(--teal-bright);
+            font-family: var(--font-heading);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        td {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        ul.styled-list {
+            list-style: none;
+        }
+
+        ul.styled-list li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 6px;
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            line-height: 1.4;
+        }
+
+        ul.styled-list li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--teal-bright);
+            font-size: 0.65rem;
+            top: 2px;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-light);
+            padding-top: 12px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .controls {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            color: var(--text-primary);
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--teal-bright);
+            color: #000;
+            border-color: var(--teal-bright);
+        }
+
+        .slide-counter {
+            font-weight: 700;
+            color: var(--sunny-gold);
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .title-slide-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .title-slide-content h1 {
+            font-size: 2.6rem;
+            line-height: 1.15;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--sunny-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .founder-box {
+            background: rgba(10, 22, 40, 0.8);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--sunny-gold);
+            border-radius: 10px;
+            padding: 14px;
+            margin-top: 15px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<div class="presentation-container">
+    <header>
+        <div class="brand-logo">Scapush <span>Precision</span></div>
+        <div class="header-tools">
+            <button class="narrate-btn" id="narrateBtn" onclick="narrateCurrentSlide()">🔊 Read Slide Aloud</button>
+            <div class="module-badge">JET WINDOW 4 MASTER RUNBOOK</div>
+        </div>
+    </header>
+
+    <div class="slide-viewport">
+
+        <!-- SLIDE 1: TITLE -->
+        <div class="slide" data-slide-title="JET Window 4 Master Runbook and Governance Manual">
+            <div class="title-slide-content">
+                <p style="color: var(--teal-bright); font-weight: 700; letter-spacing: 2px; margin-bottom: 8px;">SECUNDA &amp; KINROSS CORRIDOR • GRANT IMPLEMENTATION</p>
+                <h1>JET Window 4 Master Runbook &amp; Governance Manual</h1>
+                <p class="slide-subtitle" style="text-align: center;">Statutory Compliance, CIPC, CSD &amp; SARS Gateways (Deadline: 5 November 2026)</p>
+                
+                <div class="founder-box">
+                    <div class="grid-2">
+                        <div>
+                            <strong style="color: var(--sunny-gold);">Operator &amp; Strategist:</strong> Sipho Wiseman Khuzwayo
+                            <p style="font-size: 0.82rem; color: var(--text-secondary);">Scapush Precision Execution</p>
+                        </div>
+                        <div>
+                            <strong style="color: var(--teal-bright);">Funding Parameters:</strong> R500k to R20M Grants
+                            <p style="font-size: 0.82rem; color: var(--text-secondary);">Agriculture, Waste-to-Value &amp; Mpumalanga Transition</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="teachability-box" style="text-align: left; margin-top: 12px;">
+                    <strong>Steward's Teachability Note:</strong> This master manual integrates statutory governance (CIPC, CSD, SARS) with our rigorous Scapush Precision roadmap for Window 4 submission success.
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: WINDOW 4 STRATEGIC FOCUS -->
+        <div class="slide" data-slide-title="Window 4 Strategic Focus and Core Mandate">
+            <h2 class="slide-title">01. Window 4 Strategic Focus</h2>
+            <p class="slide-subtitle">Exclusive Grant Funding for Agriculture &amp; Waste-to-Value</p>
+            <div class="grid-3">
+                <div class="card card-teal">
+                    <div class="card-title">Grant Funding Only</div>
+                    <div class="card-body">Zero loans, equity, or concessional debt. Pure grant allocations ranging from 500k to 20 million Rands.</div>
+                    <div class="teachability-box">Non-repayable capital injection.</div>
+                </div>
+                <div class="card card-gold">
+                    <div class="card-title">Core Sector Focus</div>
+                    <div class="card-body">Agriculture and Food Systems integrated with robust organic waste-to-value pathways.</div>
+                    <div class="teachability-box">Circular agricultural economy.</div>
+                </div>
+                <div class="card card-teal">
+                    <div class="card-title">Impact &amp; Beneficiaries</div>
+                    <div class="card-body">Strong priority on coal-impacted Mpumalanga communities empowering women, youth, and former mine workers.</div>
+                    <div class="teachability-box">Just transition mandate.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: SEVEN PRIORITY PILLARS -->
+        <div class="slide" data-slide-title="Seven Priority Pillars of Window 4">
+            <h2 class="slide-title">02. Seven Priority Pillars</h2>
+            <p class="slide-subtitle">Eligible Project Categories for Window 4 Submission</p>
+            <div class="grid-2">
+                <div class="card card-gold">
+                    <div class="card-title">Pillars 1 to 4: Production &amp; Hubs</div>
+                    <ul class="styled-list">
+                        <li><strong>1. Crop Production:</strong> Smallholder communal farming and rehabilitated mine land.</li>
+                        <li><strong>2. Agro-Processing:</strong> Milling, drying, packaging, and cold storage facilities.</li>
+                        <li><strong>3. Community Food Hubs:</strong> Aggregation, grading, and bulk institutional sales.</li>
+                        <li><strong>4. Regenerative Ag:</strong> Restoring degraded soils near historical mining sites.</li>
+                    </ul>
+                    <div class="teachability-box"><strong>Narrator Insight:</strong> Foundation of food security and land restoration.</div>
+                </div>
+                <div class="card card-teal">
+                    <div class="card-title">Pillars 5 to 7: Waste, Skills &amp; Tech</div>
+                    <ul class="styled-list">
+                        <li><strong>5. Waste-to-Value:</strong> Composting and biogas within primary circular pathways.</li>
+                        <li><strong>6. Enterprise Skills:</strong> Agricultural training for long-term project sovereignty.</li>
+                        <li><strong>7. Controlled Environment:</strong> Water-efficient practices and hydroponic installations.</li>
+                    </ul>
+                    <div class="teachability-box"><strong>Narrator Insight:</strong> Technological resilience and circular utility design.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: MANDATORY GATING REQUIREMENTS -->
+        <div class="slide" data-slide-title="Mandatory Gating Requirements">
+            <h2 class="slide-title">03. Mandatory Gating Requirements</h2>
+            <p class="slide-subtitle">Pass / Fail Screening Criteria Before Technical Evaluation</p>
+            <div class="grid-2">
+                <div class="card card-teal">
+                    <div class="card-title">Legal &amp; Land Tenure Gating</div>
+                    <ul class="styled-list">
+                        <li><strong>Entity Registration:</strong> Applicant must be a fully registered legal entity in good standing.</li>
+                        <li><strong>Documented Land Access:</strong> Mandatory written leases or title deeds. Unverified government land assumptions lead to immediate disqualification.</li>
+                    </ul>
+                    <div class="teachability-box"><strong>Narrator Insight:</strong> Zero tolerance for informal or unverified land arrangements.</div>
+                </div>
+                <div class="card card-gold">
+                    <div class="card-title">Market &amp; Community Gating</div>
+                    <ul class="styled-list">
+                        <li><strong>Route to Market:</strong> Clear evidence of market uptake or formal off-taker agreements.</li>
+                        <li><strong>Community Inclusion:</strong> Meaningful participation and economic empowerment of women, youth, and former mine workers.</li>
+                    </ul>
+                    <div class="teachability-box"><strong>Narrator Insight:</strong> Market viability and social license are mandatory.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: STATUTORY GOVERNANCE: CIPC COMPLIANCE -->
+        <div class="slide" data-slide-title="Statutory Governance: CIPC Compliance">
+            <h2 class="slide-title">04. Statutory Governance: CIPC</h2>
+            <p class="slide-subtitle">Companies and Intellectual Property Commission Requirements</p>
+            <div class="grid-3">
+                <div class="card card-teal">
+                    <div class="card-title">Active Enterprise Status</div>
+                    <div class="card-body">Ensure the operating entity is registered as 'In Business' with CIPC, with current annual return filings up to date.</div>
+                    <div class="teachability-box">Zero dormant entities permitted.</div>
+                </div>
+                <div class="card card-gold">
+                    <div class="card-title">Director Verification</div>
+                    <div class="card-body">Verify active director identity numbers, residential addresses, and shareholding structures against official CIPC disclosure certificates.</div>
+                    <div class="teachability-box">Transparent ownership control.</div>
+                </div>
+                <div class="card card-teal">
+                    <div class="card-title">Memorandum of Incorporation</div>
+                    <div class="card-body">Confirm that the MOI explicitly accommodates agricultural production, renewable energy, and agro-processing business activities.</div>
+                    <div class="teachability-box">Scope alignment check.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: STATUTORY GOVERNANCE: SARS TAX CLEARANCE -->
+        <div class="slide" data-slide-title="Statutory Governance: SARS Tax Clearance">
+            <h2 class="slide-title">05. Statutory Governance: SARS</h2>
+            <p class="slide-subtitle">South African Revenue Service Tax Compliance Status (TCS)</p>
+            <div class="grid-2">
+                <div class="card card-gold">
+                    <div class="card-title">Tax Compliance Status (TCS) Pin</div>
+                    <ul class="styled-list">
+                        <li><strong>Valid TCS Pin:</strong> Must generate and submit an active SARS Tax Compliance Status Pin verifying zero outstanding debt or unfiled returns.</li>
+                        <li><strong>VAT Registration:</strong> Confirm VAT vendor status where projected turnover exceeds the statutory 1 million Rand threshold.</li>
+                    </ul>
+                    <div class="teachability-box"><strong>Narrator Insight:</strong> Tax non-compliance triggers immediate automated disqualification at intake.</div>
+                </div>
+                <div class="card card-teal">
+                    <div class="card-title">PAYE &amp; SDL Reconciliation</div>
+                    <ul class="styled-list">
+                        <li><strong>Payroll Filings:</strong> Ensure EMP201 and EMP501 submissions are fully reconciled for all employed personnel.</li>
+                        <li><strong>Good Standing Certificate:</strong> Attach official SARS good standing documentation within the application portal vault.</li>
+                    </ul>
+                    <div class="teachability-box"><strong>Narrator Insight:</strong> Demonstrates corporate fiscal responsibility to funders.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: STATUTORY GOVERNANCE: CSD REGISTRATION -->
+        <div class="slide" data-slide-title="Statutory Governance: Central Supplier Database (CSD)">
+            <h2 class="slide-title">06. Statutory Governance: CSD</h2>
+            <p class="slide-subtitle">National Treasury Central Supplier Database Integration</p>
+            <div class="grid-3">
+                <div class="card card-teal">
+                    <div class="card-title">Supplier Number (MAAA)</div>
+                    <div class="card-body">Maintain an active CSD registration with a verified MAAA supplier number in good standing across all state spheres.</div>
+                    <div class="teachability-box">Mandatory state database entry.</div>
+                </div>
+                <div class="card card-gold">
+                    <div class="card-title">Banking &amp; Ownership Sync</div>
+                    <div class="card-body">Ensure bank account verification status on CSD matches company registration documents and tax records without discrepancies.</div>
+                    <div class="teachability-box">Prevents disbursement delays.</div>
+                </div>
+                <div class="card card-teal">
+                    <div class="card-title">B-BBEE Verification</div>
+                    <div class="card-body">Upload verified Level 1 to 4 B-BBEE certificates or sworn affidavits to maximize socioeconomic scoring metrics.</div>
+                    <div class="teachability-box">Empowerment scoring anchor.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 8: SUBMISSION CHECKLIST MASTER TABLE -->
+        <div class="slide" data-slide-title="Submission Checklist Master Table">
+            <h2 class="slide-title">07. Submission Checklist</h2>
+            <p class="slide-subtitle">Comprehensive Document Audit Trail for Window 4</p>
+            <div class="card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Document Domain</th>
+                            <th>Specific Requirement</th>
+                            <th>Verification Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Corporate Identity</strong></td>
+                            <td>CIPC Registration Certificate &amp; Updated Disclosure</td>
+                            <td>CIPC Portal</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tax Clearance</strong></td>
+                            <td>Active Tax Compliance Status (TCS) Pin</td>
+                            <td>SARS eFiling</td>
+                        </tr>
+                        <tr>
+                            <td><strong>State Procurement</strong></td>
+                            <td>CSD Registration Summary Report (MAAA number)</td>
+                            <td>National Treasury CSD</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Land Tenure</strong></td>
+                            <td>Signed Title Deed or Valid Lease Agreement</td>
+                            <td>Legal Deed / Land Owner</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="teachability-box" style="margin-top: 12px;">
+                    <strong>Narrator Insight:</strong> Every document must be verified and uploaded prior to final submission.
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 9: ASSESSMENT & STAGED PIPELINE -->
+        <div class="slide" data-slide-title="Assessment and Staged Pipeline">
+            <h2 class="slide-title">08. Assessment &amp; Staged Pipeline</h2>
+            <p class="slide-subtitle">From Expression of Interest to Readiness Matchmaking</p>
+            <div class="grid-3">
+                <div class="card card-teal">
+                    <div class="card-title">Stage 1: EOI Screening</div>
+                    <div class="card-body">Initial review of Expressions of Interest, filtering the top 35 qualifying projects to advance to Stage 2.</div>
+                    <div class="teachability-box">First-round technical filter.</div>
+                </div>
+                <div class="card card-gold">
+                    <div class="card-title">Stage 2: Full Application</div>
+                    <div class="card-body">Detailed submission reviewed by the Project Selection Committee and approved by the Project Review Committee.</div>
+                    <div class="teachability-box">Rigorous committee evaluation.</div>
+                </div>
+                <div class="card card-teal">
+                    <div class="card-title">Readiness Matchmaking</div>
+                    <div class="card-body">Successful applicants enter the funder register and partner with readiness organizations like Fetola.</div>
+                    <div class="teachability-box">Investment readiness preparation.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 10: ACTION PLAN & DEADLINE PROTOCOL -->
+        <div class="slide active" data-slide-title="Action Plan and Deadline Protocol">
+            <h2 class="slide-title">09. Action Plan &amp; Deadlines</h2>
+            <p class="slide-subtitle">Execution Roadmap to the 5 November 2026 Deadline</p>
+            <div class="grid-2">
+                <div class="card card-gold">
+                    <div class="card-title">Immediate Pre-Submission Tasks</div>
+                    <ul class="styled-list">
+                        <li><strong>Audit Compliance:</strong> Confirm CIPC annual returns, SARS TCS pins, and CSD bank verifications are current.</li>
+                        <li><strong>Secure Land Tenure:</strong> Finalize written lease agreements or land allocation letters.</li>
+                        <li><strong>Draft Proposal:</strong> Build a transparent, crop-cycle and waste-to-value narrative.</li>
+                    </ul>
+                    <div class="teachability-box"><strong>Narrator Insight:</strong> Complete all checks early to prevent last-minute system congestion.</div>
+                </div>
+                <div class="card card-teal">
+                    <div class="card-title">Portal Submission Protocol</div>
+                    <ul class="styled-list">
+                        <li><strong>Official Portal:</strong> Submit applications via <strong>jetfundingplatform.org.za</strong>.</li>
+                        <li><strong>Strict Deadline:</strong> Window closes strictly on <strong>5 November 2026</strong>. No late submissions accepted.</li>
+                        <li><strong>Execution Readiness:</strong> We are ready for full deployment.</li>
+                    </ul>
+                    <div class="teachability-box"><strong>Narrator Insight:</strong> Execute with Scapush Precision. We are ready.</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div>Scapush Precision | JET Window 4 Master Governance &amp; Runbook Manual</div>
+        <div class="controls">
+            <button class="btn" onclick="changeSlide(-1)">Previous</button>
+            <span class="slide-counter" id="slideCounter">10 / 10</span>
+            <button class="btn" onclick="changeSlide(1)">Next</button>
+        </div>
+        <div>Operator: Sipho Wiseman Khuzwayo</div>
+    </footer>
+</div>
+
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const slideCounter = document.getElementById('slideCounter');
+let isSpeaking = false;
+
+function showSlide(index) {
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        document.getElementById('narrateBtn').textContent = '🔊 Read Slide Aloud';
+    }
+
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+            slide.classList.add('active');
+        }
+    });
+    slideCounter.textContent = `${index + 1} / ${slides.length}`;
+}
+
+function changeSlide(direction) {
+    currentSlide += direction;
+    if (currentSlide < 0) {
+        currentSlide = slides.length - 1;
+    } else if (currentSlide >= slides.length) {
+        currentSlide = 0;
+    }
+    showSlide(currentSlide);
+}
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'ArrowRight' || event.key === ' ') {
+        changeSlide(1);
+    } else if (event.key === 'ArrowLeft') {
+        changeSlide(-1);
+    }
+});
+
+function narrateCurrentSlide() {
+    if (!('speechSynthesis' in window)) {
+        alert('Text-to-speech is not supported by your browser.');
+        return;
+    }
+
+    const btn = document.getElementById('narrateBtn');
+
+    if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        btn.textContent = '🔊 Read Slide Aloud';
+        return;
+    }
+
+    const activeSlideElement = slides[currentSlide];
+    const slideTitle = activeSlideElement.getAttribute('data-slide-title') || `Slide ${currentSlide + 1}`;
+    
+    const textNodes = activeSlideElement.querySelectorAll('h1, h2, h3, .card-title, .card-body, .metric-value, .metric-label, td, li, .teachability-box');
+    let slideNarration = `Slide ${currentSlide + 1}: ${slideTitle}. `;
+
+    textNodes.forEach(node => {
+        const cleanText = node.innerText.replace(/[\n\r]+/g, ' ').trim();
+        if (cleanText) {
+            slideNarration += cleanText + '. ';
+        }
+    });
+
+    const utterance = new SpeechSynthesisUtterance(slideNarration);
+    utterance.lang = 'en-US';
+    utterance.volume = 1.0; 
+    utterance.rate = 0.95;  
+    utterance.pitch = 1.0;
+
+    utterance.onend = function() {
+        isSpeaking = false;
+        btn.textContent = '🔊 Read Slide Aloud';
+    };
+
+    utterance.onerror = function() {
+        isSpeaking = false;
+        btn.textContent = '🔊 Read Slide Aloud';
+    };
+
+    isSpeaking = true;
+    btn.textContent = '⏹️ Stop Narration';
+    
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utterance);
+}
+</script>
+
+
+</body></html>

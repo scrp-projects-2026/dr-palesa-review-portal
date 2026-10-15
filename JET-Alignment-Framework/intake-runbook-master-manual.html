@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)file:///C:/Users/ASUS/Downloads/gemini-code-1791976464007.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Intake Runbook &amp; Site Training Master Manual | Lwandile Engineering Projects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./First Intake Runbook &amp; Site Training Master Manual _ Lwandile Engineering Projects_files/css2" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #050B14;
+            --bg-card: #0A1628;
+            --bg-card-hover: #10223D;
+            --sunny-gold: #FFB800;
+            --sunny-gold-glow: rgba(255, 184, 0, 0.25);
+            --sunny-gold-dark: #D99B00;
+            --teal-accent: #0D9488;
+            --teal-bright: #14B8A6;
+            --teal-glow: rgba(20, 184, 166, 0.15);
+            --border-color: rgba(20, 184, 166, 0.25);
+            --border-light: rgba(255, 255, 255, 0.08);
+            --text-primary: #FFFFFF;
+            --text-secondary: #94A3B8;
+            --text-muted: #64748B;
+            --font-heading: 'Space Grotesk', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 10%, rgba(255, 184, 0, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(13, 148, 136, 0.08) 0%, transparent 40%);
+        }
+
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            max-width: 1450px;
+            max-height: 920px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 25px 35px;
+            background: radial-gradient(circle at top right, #0A1628 0%, var(--bg-main) 70%);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 12px;
+        }
+
+        .brand-logo {
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo span {
+            color: var(--sunny-gold);
+        }
+
+        .brand-logo::before {
+            content: '';
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background-color: var(--sunny-gold);
+            border-radius: 2px;
+        }
+
+        .header-tools {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .narrate-btn {
+            background: rgba(20, 184, 166, 0.15);
+            border: 1px solid var(--teal-bright);
+            color: var(--teal-bright);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .narrate-btn:hover {
+            background: var(--teal-bright);
+            color: #000;
+        }
+
+        .module-badge {
+            background: rgba(255, 184, 0, 0.1);
+            border: 1px solid var(--sunny-gold);
+            color: var(--sunny-gold);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .slide-viewport {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 0;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            justify-content: center;
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+        }
+
+        .slide-subtitle {
+            font-size: 1rem;
+            color: var(--teal-bright);
+            margin-bottom: 18px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 18px;
+            position: relative;
+            transition: border-color 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--teal-accent);
+        }
+
+        .card-gold {
+            border-top: 3px solid var(--sunny-gold);
+        }
+
+        .card-teal {
+            border-top: 3px solid var(--teal-bright);
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: var(--sunny-gold);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .card-body {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+        }
+
+        .teachability-box {
+            margin-top: 12px;
+            background: rgba(20, 184, 166, 0.05);
+            border-left: 3px solid var(--teal-bright);
+            padding: 8px 12px;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.83rem;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .teachability-box strong {
+            color: var(--teal-bright);
+            text-transform: uppercase;
+            font-size: 0.72rem;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 5px;
+        }
+
+        th, td {
+            padding: 8px 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        th {
+            background-color: rgba(13, 148, 136, 0.15);
+            color: var(--teal-bright);
+            font-family: var(--font-heading);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        td {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        ul.styled-list {
+            list-style: none;
+        }
+
+        ul.styled-list li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 6px;
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            line-height: 1.4;
+        }
+
+        ul.styled-list li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--teal-bright);
+            font-size: 0.65rem;
+            top: 2px;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-light);
+            padding-top: 12px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .controls {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            color: var(--text-primary);
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--teal-bright);
+            color: #000;
+            border-color: var(--teal-bright);
+        }
+
+        .slide-counter {
+            font-weight: 700;
+            color: var(--sunny-gold);
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .title-slide-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .title-slide-content h1 {
+            font-size: 2.6rem;
+            line-height: 1.15;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--sunny-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .founder-box {
+            background: rgba(10, 22, 40, 0.8);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--sunny-gold);
+            border-radius: 10px;
+            padding: 14px;
+            margin-top: 15px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<div class="presentation-container">
+    <header>
+        <div class="brand-logo">Lwandile <span>Engineering Projects</span></div>
+        <div class="header-tools">
+            <button class="narrate-btn" id="narrateBtn" onclick="narrateCurrentSlide()">🔊 Read Slide Aloud</button>
+            <div class="module-badge">FIRST INTAKE &amp; MASTER MANUAL</div>
+        </div>
+    </header>
+
+    <div class="slide-viewport">
+
+        <!-- SLIDE 1: TITLE -->
+        <div class="slide" data-slide-title="First Intake Runbook and Site Training Master Manual">
+            <div class="title-slide-content">
+                <p style="color: var(--teal-bright); font-weight: 700; letter-spacing: 2px; margin-bottom: 8px;">SECUNDA &amp; KINROSS CORRIDOR • JET IMPLEMENTATION</p>
+                <h1>First Intake Runbook &amp; Site Training Master Manual</h1>
+                <p class="slide-subtitle" style="text-align: center;">Livestock Arrival, Envelope Commissioning &amp; Closed-Loop Hub Operations (ZAR 3.1M MVP)</p>
+                
+                <div class="founder-box">
+                    <div class="grid-2">
+                        <div>
+                            <strong style="color: var(--sunny-gold);">Managing Director &amp; Founder:</strong> Sipho Wiseman Khuzwayo
+                            <p style="font-size: 0.82rem; color: var(--text-secondary);">Lwandile Engineering Projects</p>
+                        </div>
+                        <div>
+                            <strong style="color: var(--teal-bright);">Strategic Partner:</strong> Prestige Cosmic Venture
+                            <p style="font-size: 0.82rem; color: var(--text-secondary);">Email: siphokhuzwayo12@gmail.com | Phone: +27 73 905 6846</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="teachability-box" style="text-align: left; margin-top: 12px;">
+                    <strong>Steward's Teachability Note:</strong> This master manual merges our First Intake Runbook with core site training domains to prepare for Just Energy Transition (JET) funding under strict Scapush Precision standards.
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: THE 6 CORE ENGINEERING COMPETENCIES -->
+        <div class="slide" data-slide-title="Core Engineering Competencies Overview">
+            <h2 class="slide-title">01. Core Competencies Overview</h2>
+            <p class="slide-subtitle">Six Essential Engineering Domains for Autonomous Station Operation</p>
+            <div class="grid-3">
+                <div class="card card-teal">
+                    <div class="card-title">MOD-01: Poultry Sprint Barn</div>
+                    <div class="card-body">Zero-grid brooding and batch velocity tracking across high-density sprints.</div>
+                    <div class="teachability-box">Target: Autonomous thermal and feeding control.</div>
+                </div>
+                <div class="card card-gold">
+                    <div class="card-title">MOD-02: Swine Growth Pods</div>
+                    <div class="card-body">Biosecurity containment and hydraulic gutter flushes for slurry capture.</div>
+                    <div class="teachability-box">Target: Zero odour and 4-pod isolation.</div>
+                </div>
+                <div class="card card-teal">
+                    <div class="card-title">MOD-03: Biogas &amp; Generation</div>
+                    <div class="card-body">Methane synthesis, H2S scrubbing, and co-generation steam integration.</div>
+                    <div class="teachability-box">Target: Stable 6.8 - 7.4 digester pH.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: ADDITIONAL CORE COMPETENCIES & CLOSED-LOOP ECOSYSTEM -->
+        <div class="slide" data-slide-title="Closed-Loop Ecosystem and Utility Logic">
+            <h2 class="slide-title">02. Closed-Loop Ecosystem &amp; Utility Logic</h2>
+            <p class="slide-subtitle">Interconnected Waste Harvesting &amp; Energy Recovery</p>
+            <div class="grid-2">
+                <div class="card card-gold">
+                    <div class="card-title">Advanced Domains (MOD-04 to MOD-06)</div>
+                    <ul class="styled-list">
+                        <li><strong>MOD-04 Inverter &amp; Storage:</strong> 30kW Hybrid routing and LFP battery life optimization.</li>
+                        <li><strong>MOD-05 IoT Telemetry:</strong> LoRaWAN edge sensor networks tracking ammonia and climate anchors.</li>
+                        <li><strong>MOD-06 Financial Sovereignty:</strong> Microgrid accounting using the ZAR 1.80/kWh baseline.</li>
+                    </ul>
+                    <div class="teachability-box"><strong>Narrator Insight:</strong> Complete integration of power, biology, and finance.</div>
+                </div>
+                <div class="card card-teal">
+                    <div class="card-title">Interconnected Utility Logic</div>
+                    <ul class="styled-list">
+                        <li><strong>Waste Harvesting:</strong> Manure slurry is captured straight from barns to eliminate ammonia off-gassing.</li>
+                        <li><strong>Bacterial Digestion:</strong> Organic slurry fuels anaerobic systems, creating structural methane gas.</li>
+                        <li><strong>Thermal Protection:</strong> Methane combustion outputs electrical voltage and recycled floor steam.</li>
+                    </ul>
+                    <div class="teachability-box"><strong>Narrator Insight:</strong> Shields livestock from Highveld winter freezes without outside utilities.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: INTAKE QUALITY GATES & PRE-LOADING PREP -->
+        <div class="slide" data-slide-title="Intake Quality Gates and Pre-Loading Preparation">
+            <h2 class="slide-title">03. Intake Quality Gates &amp; Pre-Loading Prep</h2>
+            <p class="slide-subtitle">Operational Instructions for Day-1 Biological Stocking</p>
+            <div class="grid-3">
+                <div class="card card-teal">
+                    <div class="card-title">Biosecurity Wash</div>
+                    <div class="card-body">Complete multi-chemical foam wash across roofs, walls, and slats. Confirm wheel spray sumps are filled with disinfectant.</div>
+                    <div class="teachability-box">Mandatory pathogen barrier.</div>
+                </div>
+                <div class="card card-gold">
+                    <div class="card-title">Thermal Warm-Up</div>
+                    <div class="card-body">Ignite the co-generation steam system 24 hours prior to animal delivery to heat nursery floors to 32°C.</div>
+                    <div class="teachability-box">Prevents chick cold stress.</div>
+                </div>
+                <div class="card card-teal">
+                    <div class="card-title">Line Purification</div>
+                    <div class="card-body">Flush water lines with chlorine dosing. Confirm sediment disc and inline UV sterilizer units are running properly.</div>
+                    <div class="teachability-box">Ensures pure hydration.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: DAY-1 INTAKE BATCH SIZING MATH -->
+        <div class="slide" data-slide-title="Day-1 Intake Batch Sizing Math">
+            <h2 class="slide-title">04. Day-1 Intake Batch Sizing Math</h2>
+            <p class="slide-subtitle">Conservative Capacity Load Targets for Initial Calibration</p>
+            <div class="grid-3">
+                <div class="card card-gold">
+                    <div class="card-title">Poultry Sprint</div>
+                    <div class="metric-value">5,760</div>
+                    <div class="metric-label">Broiler Chicks Placed</div>
+                    <div class="card-body" style="margin-top: 8px;">Confined within the isolated brooding zone for optimal thermal management.</div>
+                </div>
+                <div class="card card-teal">
+                    <div class="card-title">Swine Nursery</div>
+                    <div class="metric-value">160</div>
+                    <div class="metric-label">Weaner Pigs Grouped</div>
+                    <div class="card-body" style="margin-top: 8px;">Allocated across Pods 1 to 4 with uniform weight sorting.</div>
+                </div>
+                <div class="card card-gold">
+                    <div class="card-title">Water Siphon Draw</div>
+                    <div class="metric-value">1,200L</div>
+                    <div class="metric-label">Daily Starting Fluid Intake</div>
+                    <div class="card-body" style="margin-top: 8px;">Sized for initial stress electrolyte and glucose distribution.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: BROILER & SWINE LOADING PROTOCOLS -->
+        <div class="slide" data-slide-title="Broiler and Swine Loading Protocols">
+            <h2 class="slide-title">05. Broiler &amp; Swine Loading Protocols</h2>
+            <p class="slide-subtitle">Day-1 Placement &amp; Weaner Grouping Standards</p>
+            <div class="grid-2">
+                <div class="card card-teal">
+                    <div class="card-title">Broiler Chick Loading (Day 1)</div>
+                    <ul class="styled-list">
+                        <li><strong>Zonal Isolation:</strong> Confine placement within the partitioned 128 m² zone using thick PVC curtains.</li>
+                        <li><strong>Hydration Start:</strong> Supply warm, glucose-treated water to boost energy reserves.</li>
+                        <li><strong>Crop Checks:</strong> Physically check chick crop fullness 12 hours post-load to confirm feed access.</li>
+                    </ul>
+                    <div class="teachability-box"><strong>Narrator Insight:</strong> Day-old chicks cannot self-regulate body heat; minimize transit stress.</div>
+                </div>
+                <div class="card card-gold">
+                    <div class="card-title">Weaner Pig Nursery Onboarding</div>
+                    <ul class="styled-list">
+                        <li><strong>Weight Sorting:</strong> Group pigs of uniform size into individual pods (Pods 1 to 4) to eliminate feeding fights.</li>
+                        <li><strong>Hygienic Slat Intro:</strong> Place piglets directly on elevated virgin plastic slats over concrete flushes.</li>
+                        <li><strong>Thermal Check:</strong> Verify steam-plumbed floor lines register 32°C at piglet height.</li>
+                    </ul>
+                    <div class="teachability-box"><strong>Narrator Insight:</strong> Protects arriving 7kg weaners from pathogen introduction and sorting stress.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: DAY-1 TO DAY-7 FEED SCHEDULE -->
+        <div class="slide" data-slide-title="Day-1 to Day-7 Feed Schedule">
+            <h2 class="slide-title">06. Day-1 to Day-7 Feed Schedule</h2>
+            <p class="slide-subtitle">Operational Milling Blends &amp; Water Dosing Protocols</p>
+            <div class="card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Livestock Group</th>
+                            <th>Day 1 - 2 Feed Class</th>
+                            <th>Day 3-7 Feed Class</th>
+                            <th>Primary Operator Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Broiler Chicks</strong></td>
+                            <td>Pre-starter crumble on floor paper</td>
+                            <td>Feeder tray transition with starter crumbs</td>
+                            <td>Monitor chick distribution patterns across the heat zone.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Weaner Pigs (Both Loops)</strong></td>
+                            <td>Pre-starter creep meal pellets &amp; glucose-electrolyte water</td>
+                            <td>Grower phase pellet blend &amp; sanitized UV water lines</td>
+                            <td>Confirm creep feeders dispense dry meal without blocking; test water pressure.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="teachability-box" style="margin-top: 12px;">
+                    <strong>Narrator Insight:</strong> Strict feed scheduling ensures high-velocity growth curves and prevents digestive distress.
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 8: THE FIRST 24-HOUR TIMELINE -->
+        <div class="slide" data-slide-title="The First 24-Hour Timeline">
+            <h2 class="slide-title">07. The First 24-Hour Timeline</h2>
+            <p class="slide-subtitle">Chronological Milestone Execution for Station Operators</p>
+            <div class="grid-2">
+                <div class="card card-teal">
+                    <div class="card-title">Hour -4 &amp; Hour 0</div>
+                    <ul class="styled-list">
+                        <li><strong>Hour -4 (Pre-Warm):</strong> Ignite the biogas boilers to stabilize ambient air and floor heat targets.</li>
+                        <li><strong>Hour 0 (Unload):</strong> Unload animals through biosecurity chemical change boot points.</li>
+                    </ul>
+                    <div class="teachability-box"><strong>Narrator Insight:</strong> Establishes thermal equilibrium before biological exposure.</div>
+                </div>
+                <div class="card card-gold">
+                    <div class="card-title">Hour +4 &amp; Hour +12</div>
+                    <ul class="styled-list">
+                        <li><strong>Hour +4 (Hydrate):</strong> Check that water dosing loops are distributing stress electrolytes properly.</li>
+                        <li><strong>Hour +12 (Audit):</strong> Perform direct crop and physical audits to identify weak outliers.</li>
+                    </ul>
+                    <div class="teachability-box"><strong>Narrator Insight:</strong> Early intervention guarantees herd survival rates.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 9: FIRST INTAKE CLIMATE TARGETS -->
+        <div class="slide" data-slide-title="First Intake Climate Targets">
+            <h2 class="slide-title">08. First Intake Climate Targets</h2>
+            <p class="slide-subtitle">Highveld Winter Thermal Management via Exhaust Steam</p>
+            <div class="grid-3">
+                <div class="card card-gold">
+                    <div class="card-title">Brooding Zone Target</div>
+                    <div class="metric-value">33°C</div>
+                    <div class="metric-label">100% Relative Heat Load</div>
+                    <div class="teachability-box">Floor steam active.</div>
+                </div>
+                <div class="card card-teal">
+                    <div class="card-title">Swine Nursery Target</div>
+                    <div class="metric-value">32°C</div>
+                    <div class="metric-label">97% Thermal Baseline</div>
+                    <div class="teachability-box">Pod temperature verified.</div>
+                </div>
+                <div class="card card-gold">
+                    <div class="card-title">Typical Winter Highveld</div>
+                    <div class="metric-value">12°C</div>
+                    <div class="metric-label">36% Ambient Outdoor</div>
+                    <div class="teachability-box">Zero reliance on grid heaters.</div>
+                </div>
+            </div>
+            <div class="teachability-box" style="margin-top: 12px;">
+                <strong>Steward's Teaching:</strong> By replacing heavy electrical heater grids with recycled engine exhaust floor steam, target microclimates are maintained securely during cold Highveld weather.
+            </div>
+        </div>
+
+        <!-- SLIDE 10: 4-POD NURSERY ISOLATION & GUTTER FLUSH -->
+        <div class="slide" data-slide-title="4-Pod Nursery Isolation and Gutter Flush">
+            <h2 class="slide-title">09. Biosecurity Pods &amp; Gutter Flushes</h2>
+            <p class="slide-subtitle">Airtight Barriers &amp; Hydraulic Waste Operations</p>
+            <div class="grid-2">
+                <div class="card card-teal">
+                    <div class="card-title">4-Pod Isolation System</div>
+                    <ul class="styled-list">
+                        <li><strong>Airtight Barriers:</strong> Keep individual entry doors closed tightly to halt airborne pathogen drift.</li>
+                        <li><strong>Decoupled Foot Baths:</strong> Step into dedicated viral chemical washes before passing doors.</li>
+                        <li><strong>Isolated Drainage:</strong> Keep pod drain valves shut during targeted observation.</li>
+                    </ul>
+                    <div class="teachability-box"><strong>Narrator Insight:</strong> Total biosecurity compartmentalization.</div>
+                </div>
+                <div class="card card-gold">
+                    <div class="card-title">Hydraulic Gutter Flush</div>
+                    <ul class="styled-list">
+                        <li><strong>Interval Routine:</strong> Execute a full concrete channel flush every 48 hours to maintain hygiene.</li>
+                        <li><strong>Sluice Gate Operation:</strong> Lift concrete release gates rapidly to utilize maximum hydraulic flushing heads.</li>
+                        <li><strong>Gravity Transit:</strong> Built-in slopes carry waste slurry directly into continuous digesters without pumps.</li>
+                    </ul>
+                    <div class="teachability-box"><strong>Narrator Insight:</strong> Zero electrical energy required for waste transport.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 11: ANAEROBIC BIOGAS & CO-GENERATION -->
+        <div class="slide" data-slide-title="Anaerobic Biogas and Co-Generation Management">
+            <h2 class="slide-title">10. Biogas &amp; Co-Generation Management</h2>
+            <p class="slide-subtitle">Slurry Balancing, H2S Scrubbing &amp; Heat Extraction</p>
+            <div class="grid-2">
+                <div class="card card-gold">
+                    <div class="card-title">Digester Core Optimization</div>
+                    <ul class="styled-list">
+                        <li><strong>Dilution Ratios:</strong> Mix raw swine manure with borehole water at a strict 1:1 fluid weight ratio.</li>
+                        <li><strong>Solids Threshold:</strong> Maintain overall total volatile solids at an 8% to 10% operational consistency.</li>
+                        <li><strong>pH Monitoring:</strong> Keep effluent pH stable between 6.8 and 7.4 to prevent souring.</li>
+                    </ul>
+                    <div class="teachability-box"><strong>Narrator Insight:</strong> Protects anaerobic bacterial health.</div>
+                </div>
+                <div class="card card-teal">
+                    <div class="card-title">Co-Generation &amp; Scrubbing</div>
+                    <ul class="styled-list">
+                        <li><strong>Iron Swarf Traps:</strong> Inspect and shake loose reactive binding media every 30 days to bind H2S.</li>
+                        <li><strong>Manifold Injection:</strong> Route scrubbed methane gas into modified generators at 15-22 kPa.</li>
+                        <li><strong>Steam Distribution:</strong> Route recovered hot steam through insulated pipe networks into nursery floors.</li>
+                    </ul>
+                    <div class="teachability-box"><strong>Narrator Insight:</strong> Simultaneous electrical generation and thermal floor heating.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 12: SOLAR, BESS & TELEMETRY -->
+        <div class="slide" data-slide-title="Solar Inverter, BESS and Telemetry Anchors">
+            <h2 class="slide-title">11. Solar Inverter, BESS &amp; Telemetry</h2>
+            <p class="slide-subtitle">Hybrid Routing, LFP Battery Care &amp; LoRaWAN Sensors</p>
+            <div class="grid-3">
+                <div class="card card-teal">
+                    <div class="card-title">30kW Solar &amp; Inverter</div>
+                    <div class="card-body">Confirm MPPT high-voltage DC string tracking and verify automated open-loop island mode switchgear status flags.</div>
+                    <div class="teachability-box">Never open DC fuses under load.</div>
+                </div>
+                <div class="card card-gold">
+                    <div class="card-title">30kWh Lithium BESS</div>
+                    <div class="card-body">Maintain SoC between 20% and 95%. Keep cell balance variance under 15mV and enclosure temperature at 15°C to 30°C.</div>
+                    <div class="teachability-box">Monthly BMS equalization.</div>
+                </div>
+                <div class="card card-teal">
+                    <div class="card-title">LoRaWAN Sensors</div>
+                    <div class="card-body">Check IP67 gateway status daily. Clean NH3 sensor filters every 60 days and swap internal node batteries past 2.2V.</div>
+                    <div class="teachability-box">Sensors are the system's eyes.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 13: HYDRAULICS, PURIFICATION & ACCOUNTING -->
+        <div class="slide" data-slide-title="Hydrological Operations and Sovereign Financial Accounting">
+            <h2 class="slide-title">12. Hydraulics &amp; Sovereign Accounting</h2>
+            <p class="slide-subtitle">Borehole Transfer, UV Sterilization &amp; ZAR 1.80 Baseline</p>
+            <div class="grid-2">
+                <div class="card card-gold">
+                    <div class="card-title">Hydrological &amp; UV Purification</div>
+                    <ul class="styled-list">
+                        <li><strong>Borehole Pumps:</strong> Activate during solar peaks; maintain JoJo tank reserves above the 5-day emergency line.</li>
+                        <li><strong>Kinetic Disc Bank:</strong> Flush trapped sand sediment weekly to clear automation valves.</li>
+                        <li><strong>UV &amp; Doser:</strong> Verify blue glow daily and mix chlorine baseline stocks for 2 ppm residual.</li>
+                    </ul>
+                    <div class="teachability-box"><strong>Narrator Insight:</strong> Absolute pathogen neutralization.</div>
+                </div>
+                <div class="card card-teal">
+                    <div class="card-title">Sovereign Financial Accounting</div>
+                    <ul class="styled-list">
+                        <li><strong>Tariff Baseline:</strong> Value internal power usage at a fixed <strong>1.80 ZAR/kWh</strong> in all models.</li>
+                        <li><strong>Batch Ledger Sync:</strong> Log feed consumption against animal weights weekly to calculate feed conversions.</li>
+                        <li><strong>Yield Projections:</strong> Tag all sales under regional, off-grid premium distributions.</li>
+                    </ul>
+                    <div class="teachability-box"><strong>Narrator Insight:</strong> Quantifies energy cost savings for tracking auditors.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 14: EMERGENCY RESPONSE & CERTIFICATION -->
+        <div class="slide active" data-slide-title="Emergency Response Protocols and Master Certification">
+            <h2 class="slide-title">13. Emergency Response &amp; Certification</h2>
+            <p class="slide-subtitle">Standardized Incident Protocols &amp; Master Sign-off</p>
+            <div class="card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Incident Context</th>
+                            <th>Immediate Core Action Step</th>
+                            <th>Secondary Safety Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Total Microgrid Failure</strong></td>
+                            <td>Isolate LFP battery bank and switch main inverter breakers off.</td>
+                            <td>Start biogas generator manually to run emergency lines.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Drastic Water Drop</strong></td>
+                            <td>Close primary barn header drops to protect remaining tower reserves.</td>
+                            <td>Inspect pipe runs to locate and isolate structural leaks.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Extreme Ammonia Spikes</strong></td>
+                            <td>Hoist side PVC weather curtains manually to clear air paths.</td>
+                            <td>Initiate emergency floor scrapes and inspect slurry gates.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="teachability-box" style="margin-top: 12px;">
+                    <strong>Master Certification:</strong> Approved for live loading ignition and JET funding implementation. Operators to review weekly.
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div>Lwandile Engineering Projects | First Intake Runbook &amp; Master Manual</div>
+        <div class="controls">
+            <button class="btn" onclick="changeSlide(-1)">Previous</button>
+            <span class="slide-counter" id="slideCounter">14 / 14</span>
+            <button class="btn" onclick="changeSlide(1)">Next</button>
+        </div>
+        <div>Architect: Sipho Wiseman Khuzwayo</div>
+    </footer>
+</div>
+
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const slideCounter = document.getElementById('slideCounter');
+let isSpeaking = false;
+
+function showSlide(index) {
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        document.getElementById('narrateBtn').textContent = '🔊 Read Slide Aloud';
+    }
+
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+            slide.classList.add('active');
+        }
+    });
+    slideCounter.textContent = `${index + 1} / ${slides.length}`;
+}
+
+function changeSlide(direction) {
+    currentSlide += direction;
+    if (currentSlide < 0) {
+        currentSlide = slides.length - 1;
+    } else if (currentSlide >= slides.length) {
+        currentSlide = 0;
+    }
+    showSlide(currentSlide);
+}
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'ArrowRight' || event.key === ' ') {
+        changeSlide(1);
+    } else if (event.key === 'ArrowLeft') {
+        changeSlide(-1);
+    }
+});
+
+function narrateCurrentSlide() {
+    if (!('speechSynthesis' in window)) {
+        alert('Text-to-speech is not supported by your browser.');
+        return;
+    }
+
+    const btn = document.getElementById('narrateBtn');
+
+    if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        btn.textContent = '🔊 Read Slide Aloud';
+        return;
+    }
+
+    const activeSlideElement = slides[currentSlide];
+    const slideTitle = activeSlideElement.getAttribute('data-slide-title') || `Slide ${currentSlide + 1}`;
+    
+    const textNodes = activeSlideElement.querySelectorAll('h1, h2, h3, .card-title, .card-body, .metric-value, .metric-label, td, li, .teachability-box');
+    let slideNarration = `Slide ${currentSlide + 1}: ${slideTitle}. `;
+
+    textNodes.forEach(node => {
+        const cleanText = node.innerText.replace(/[\n\r]+/g, ' ').trim();
+        if (cleanText) {
+            slideNarration += cleanText + '. ';
+        }
+    });
+
+    const utterance = new SpeechSynthesisUtterance(slideNarration);
+    utterance.lang = 'en-US';
+    utterance.volume = 1.0; 
+    utterance.rate = 0.95;  
+    utterance.pitch = 1.0;
+
+    utterance.onend = function() {
+        isSpeaking = false;
+        btn.textContent = '🔊 Read Slide Aloud';
+    };
+
+    utterance.onerror = function() {
+        isSpeaking = false;
+        btn.textContent = '🔊 Read Slide Aloud';
+    };
+
+    isSpeaking = true;
+    btn.textContent = '⏹️ Stop Narration';
+    
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utterance);
+}
+</script>
+
+
+</body></html>

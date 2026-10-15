@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)file:///C:/Users/ASUS/Downloads/gemini-code-1791964800523.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOD-Z2-02: Advanced Biogas Digester Engineering &amp; Gas Scrubber Technology</title>
+    <style>
+        :root {
+            --bg-primary: #0a0e14;
+            --bg-card: #121820;
+            --bg-card-alt: #1a222d;
+            --accent-green: #00e676;
+            --accent-gold: #ffb300;
+            --accent-blue: #00e5ff;
+            --text-primary: #f0f4f8;
+            --text-secondary: #94a3b8;
+            --border-color: #24303f;
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-family);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            max-width: 1600px;
+            max-height: 950px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 30px 40px;
+            background: radial-gradient(circle at top right, #1a2636 0%, var(--bg-primary) 60%);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .brand-logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo::before {
+            content: '';
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background-color: var(--accent-green);
+            border-radius: 2px;
+        }
+
+        .header-center-tools {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .narrate-slide-btn {
+            background: rgba(0, 229, 255, 0.15);
+            border: 1px solid var(--accent-blue);
+            color: var(--accent-blue);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .narrate-slide-btn:hover {
+            background: var(--accent-blue);
+            color: #000;
+        }
+
+        .module-badge {
+            background: rgba(0, 230, 118, 0.1);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .slide-viewport {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            justify-content: center;
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        .slide-subtitle {
+            font-size: 1.05rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        /* Content Layout Structures */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            position: relative;
+            transition: border-color 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--accent-green);
+        }
+
+        .card-highlight {
+            border-top: 3px solid var(--accent-green);
+        }
+
+        .card-gold {
+            border-top: 3px solid var(--accent-gold);
+        }
+
+        .card-blue {
+            border-top: 3px solid var(--accent-blue);
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .card-body {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Teachability Narrator Box */
+        .teachability-narrator-box {
+            margin-top: 15px;
+            background: rgba(0, 229, 255, 0.05);
+            border-left: 3px solid var(--accent-blue);
+            padding: 10px 14px;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.88rem;
+            color: var(--text-primary);
+            line-height: 1.45;
+        }
+
+        .teachability-narrator-box strong {
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .metric-value {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--accent-green);
+            line-height: 1.1;
+            margin: 6px 0;
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 5px;
+        }
+
+        th, td {
+            padding: 10px 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--bg-card-alt);
+            color: var(--accent-gold);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        td {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+
+        tr:nth-child(even) td {
+            background-color: rgba(255, 255, 255, 0.01);
+        }
+
+        ul.tech-list {
+            list-style: none;
+        }
+
+        ul.tech-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        ul.tech-list li::before {
+            content: '■';
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+            font-size: 0.75rem;
+            top: 2px;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 12px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .controls {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .btn {
+            background: var(--bg-card-alt);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 6px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--accent-green);
+            color: #000;
+            border-color: var(--accent-green);
+        }
+
+        .slide-counter {
+            font-weight: 600;
+            color: var(--accent-gold);
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .title-slide-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .title-slide-content h1 {
+            font-size: 2.8rem;
+            line-height: 1.15;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .meta-table {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 25px;
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-item .label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .meta-item .value {
+            font-size: 1rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="presentation-container">
+        <header>
+            <div class="brand-logo">Lwandile Engineering Projects</div>
+            <div class="header-center-tools">
+                <button class="narrate-slide-btn" id="narrateBtn" onclick="narrateCurrentSlide()">🔊 Read Current Slide Aloud</button>
+                <div class="module-badge">MOD-Z2-02 | NQF 4</div>
+            </div>
+        </header>
+
+        <div class="slide-viewport">
+
+            <!-- SLIDE 1 -->
+            <div class="slide" data-slide-title="Introduction and Framework Overview">
+                <div class="title-slide-content">
+                    <p style="color: var(--accent-green); font-weight: 600; letter-spacing: 2px; margin-bottom: 10px;">TEACHABILITY FRAMEWORK • SCAPUSH PRECISION</p>
+                    <h1>Advanced Biogas Digester Engineering &amp; Gas Scrubber Technology</h1>
+                    <p class="slide-subtitle" style="text-align: center;">Continuous Anaerobic Digestion, Gas Purification &amp; Co-Gen Interface</p>
+                    
+                    <div class="meta-table">
+                        <div class="meta-item">
+                            <div class="label">System Architect</div>
+                            <div class="value">Sipho Wiseman Khuzwayo</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="label">SETA Standard</div>
+                            <div class="value">US 262784</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="label">NQF Level</div>
+                            <div class="value">Level 4</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="label">Credits &amp; Weight</div>
+                            <div class="value">15 Credits (20%)</div>
+                        </div>
+                    </div>
+                    <div class="teachability-narrator-box" style="text-align: left; margin-top: 25px;">
+                        <strong>Teachability Narrator:</strong> Welcome to Module Z2-02, designed under the architectural vision of Sipho Wiseman Khuzwayo and executed via Scapush Precision. This module masters high-efficiency biological kinetics, multi-stage gas scrubbing, and co-gen integration.
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 2 -->
+            <div class="slide" data-slide-title="Executive Summary and Process Scope">
+                <h2 class="slide-title">Executive Summary &amp; Process Scope</h2>
+                <p class="slide-subtitle">Converting Organic Slurry to Generator-Grade Biomethane</p>
+                <div class="grid-2">
+                    <div class="card card-highlight">
+                        <div class="card-title">Anaerobic Conversion Matrix</div>
+                        <p class="card-body">Integrates a Continuous Stirred-Tank Reactor (CSTR) digester with multi-stage gas scrubbing columns to continuously process high-solids livestock waste into ultra-pure biomethane (&gt;95% CH4) suitable for internal combustion co-generation.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Focuses on upgrading biological waste into high-grade gaseous fuel streams with Scapush Precision compliance.
+                        </div>
+                    </div>
+                    <div class="card card-gold">
+                        <div class="card-title">Energy Yield Benchmark</div>
+                        <div class="metric-value">&gt;95% CH<sub>4</sub></div>
+                        <div class="metric-label">Target Biomethane Purity</div>
+                        <p class="card-body" style="margin-top: 8px;">Reduces corrosive H<sub>2</sub>S concentrations to under 10 ppm, protecting generator cylinder walls and extending co-gen maintenance intervals by 300%.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Highlights the financial and mechanical dividends of deep gas purification.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 3 -->
+            <div class="slide" data-slide-title="Biochemical Digestion Stages">
+                <h2 class="slide-title">Biochemical Digestion Stages</h2>
+                <p class="slide-subtitle">Four-Step Anaerobic Microbial Breakdown</p>
+                <div class="card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Stage</th>
+                                <th>Microbial Group</th>
+                                <th>Biological Input / Output</th>
+                                <th>Process Sensitivity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1. Hydrolysis</strong></td>
+                                <td>Hydrolytic Bacteria</td>
+                                <td>Complex Polymers → Simple Sugars &amp; Amino Acids</td>
+                                <td>pH Range: 6.0 – 6.5</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2. Acidogenesis</strong></td>
+                                <td>Fermentative Acidogens</td>
+                                <td>Soluble Compounds → Volatile Fatty Acids (VFAs)</td>
+                                <td>Rapid Organic Loading Rate Risk</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3. Acetogenesis</strong></td>
+                                <td>Acetogenic Microbes</td>
+                                <td>VFAs → Acetate, CO<sub>2</sub>, and H<sub>2</sub> Gas</td>
+                                <td>Requires Low H<sub>2</sub> Partial Pressure</td>
+                            </tr>
+                            <tr>
+                                <td><strong>4. Methanogenesis</strong></td>
+                                <td>Methanogenic Archaea</td>
+                                <td>Acetate &amp; H<sub>2</sub> → Methane (CH<sub>4</sub>) + Carbon Dioxide (CO<sub>2</sub>)</td>
+                                <td>Strict Anoxic | Optimal pH 6.8 – 7.5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="teachability-narrator-box" style="margin-top: 10px;">
+                        <strong>Narrator Insight:</strong> Teaches technicians how balancing the delicate microbial trophic chains prevents acidification crashes.
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 4 -->
+            <div class="slide" data-slide-title="CSTR Digester Design and Thermal Balance">
+                <h2 class="slide-title">CSTR Digester Design &amp; Thermal Balance</h2>
+                <p class="slide-subtitle">Mesophilic Core Operational Kinetics</p>
+                <div class="grid-2">
+                    <div class="card card-highlight">
+                        <div class="card-title">Core Mechanical Specifications</div>
+                        <ul class="tech-list">
+                            <li><strong>Operating Temperature:</strong> Mesophilic target maintained at 37°C (±1.5°C tolerance).</li>
+                            <li><strong>Hydraulic Retention Time (HRT):</strong> 22 to 28 days for complete COD reduction.</li>
+                            <li><strong>Mechanical Agitation:</strong> Low-shear, top-entry impeller running at 18 RPM to prevent bacterial floc disruption.</li>
+                            <li><strong>Thermal Insulation:</strong> Continuous polyurethane jacket with an overall U-value below 0.22 W/m²K.</li>
+                        </ul>
+                    </div>
+                    <div class="card card-blue">
+                        <div class="card-title">Thermodynamic Loop Integration</div>
+                        <p class="card-body">Diverts thermal energy directly from the Co-Gen cooling circuit into inner wall stainless steel heat exchanger coils. Maintains process stability during severe Highveld winter nights down to -6°C without auxiliary electrical resistive heating.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Emphasizes self-sustaining thermal design to eliminate external heating parasitic losses.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 5 -->
+            <div class="slide" data-slide-title="Multi-Stage Gas Scrubbing Architecture">
+                <h2 class="slide-title">Multi-Stage Gas Scrubbing Architecture</h2>
+                <p class="slide-subtitle">Eliminating Moisture, Hydrogen Sulfide, and Carbon Dioxide</p>
+                <div class="grid-3">
+                    <div class="card card-highlight">
+                        <div class="card-title">Stage 1: Desiccant Drying</div>
+                        <p class="card-body">Chilled condensate trap combined with silica gel beds drops raw gas dewpoint to -20°C, removing 99% of entrained water vapor.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Prevents acid condensation in piping loops.
+                        </div>
+                    </div>
+                    <div class="card card-highlight">
+                        <div class="card-title">Stage 2: H<sub>2</sub>S Scrubbing</div>
+                        <p class="card-body">Iron sponge media bed selectively reacts with hydrogen sulfide, lowering concentration from ~2,500 ppm down to &lt;10 ppm.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Eliminates sulfur corrosion risks across engine blocks.
+                        </div>
+                    </div>
+                    <div class="card card-highlight">
+                        <div class="card-title">Stage 3: CO<sub>2</sub> Separation</div>
+                        <p class="card-body">Pressure Swing Adsorption (PSA) column strips excess carbon dioxide, boosting net methane concentration to &gt;95% by volume.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Upgrades fuel energy density for peak turbine combustion.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 6 -->
+            <div class="slide" data-slide-title="Biogas Quality Specifications">
+                <h2 class="slide-title">Biogas Quality Specifications</h2>
+                <p class="slide-subtitle">Raw vs. Purified Gas Chemical Profiles</p>
+                <div class="card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Gas Constituent</th>
+                                <th>Raw Biogas Profile</th>
+                                <th>Scrubbed Fuel Target</th>
+                                <th>Impact on Co-Gen Engine</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Methane (CH<sub>4</sub>)</strong></td>
+                                <td>55% – 65%</td>
+                                <td>&gt;95%</td>
+                                <td>Maximizes volumetric energy density &amp; combustion efficiency.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Carbon Dioxide (CO<sub>2</sub>)</strong></td>
+                                <td>35% – 45%</td>
+                                <td>&lt;4%</td>
+                                <td>Eliminates fuel dilution and engine power derating.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Hydrogen Sulfide (H<sub>2</sub>S)</strong></td>
+                                <td>1,000 – 3,000 ppm</td>
+                                <td>&lt;10 ppm</td>
+                                <td>Prevents sulfuric acid formation and lube oil degradation.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Moisture (H<sub>2</sub>O)</strong></td>
+                                <td>Saturated (100% RH)</td>
+                                <td>&lt;0.5% RH</td>
+                                <td>Prevents line freezing and corrosion in fuel injectors.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="teachability-narrator-box" style="margin-top: 10px;">
+                        <strong>Narrator Insight:</strong> Strict gas target enforcement safeguards mechanical investments against premature failure.
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 7 -->
+            <div class="slide" data-slide-title="Co-Generation Engine Integration">
+                <h2 class="slide-title">Co-Generation Engine Integration</h2>
+                <p class="slide-subtitle">Simultaneous High-Efficiency Power and Heat Extraction</p>
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-title">Combined Heat &amp; Power (CHP) Balance</div>
+                        <ul class="tech-list">
+                            <li><strong>Electrical Output:</strong> 30kW continuous electrical output tied to the farm microgrid.</li>
+                            <li><strong>Thermal Heat Recovery:</strong> 45kW equivalent thermal energy captured via exhaust manifold and jacket water heat exchangers.</li>
+                            <li><strong>Total System Efficiency:</strong> Combined fuel efficiency reaching &gt;82% under peak thermal load.</li>
+                        </ul>
+                    </div>
+                    <div class="card card-gold">
+                        <div class="card-title">Thermal Energy Distribution</div>
+                        <p class="card-body">High-temperature thermal loop channels exhaust heat directly to underfloor radiant piping in piglet brooding pens, while medium-temperature jacket water maintains digester core slurry temperatures at 37°C.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Showcases closed-loop energy synergy designed under Sipho Wiseman Khuzwayo's system architecture.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 8 -->
+            <div class="slide" data-slide-title="Process Automation and Safety Controls">
+                <h2 class="slide-title">Process Automation &amp; Safety Controls</h2>
+                <p class="slide-subtitle">ArIoT Monitoring &amp; Automated Hazard Mitigation</p>
+                <div class="grid-3">
+                    <div class="card">
+                        <div class="card-title">Real-Time pH &amp; VFA Monitoring</div>
+                        <p class="card-body">Continuous inline probes monitor Volatile Fatty Acid to Alkalinity ratios (FOS/TAC), automatically adjusting feed pump dosing to prevent digester acidification.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Over-Pressure Protection</div>
+                        <p class="card-body">Dual-stage mechanical pressure relief valves combined with automated emergency flare stacks prevent dome structural damage during sudden gas spikes.</p>
+                    </div>
+                    <div class="card card-highlight">
+                        <div class="card-title">Gas Leakage Detection</div>
+                        <p class="card-body">Optical infrared CH<sub>4</sub> sensors located across scrubber manifolds trigger automated solenoid shut-off valves upon detecting traces &gt;0.5% by volume.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 9 -->
+            <div class="slide" data-slide-title="Bio-Solids Management and Digestate Upgrading">
+                <h2 class="slide-title">Bio-Solids Management &amp; Digestate Upgrading</h2>
+                <p class="slide-subtitle">Closing the Agronomic Cycle</p>
+                <div class="grid-2">
+                    <div class="card card-highlight">
+                        <div class="card-title">Solid-Liquid Phase Separation</div>
+                        <p class="card-body">Screw-press separator processes discharged digestate into nutrient-dense solid cakes (25% dry matter) and nitrogen-rich liquid fraction.</p>
+                    </div>
+                    <div class="card card-gold">
+                        <div class="card-title">Commercial Bio-Fertilizer Value</div>
+                        <ul class="tech-list">
+                            <li><strong>Solid Fraction:</strong> Odorless organic compost rich in stabilized carbon and phosphorus, bagged for commercial nursery resale.</li>
+                            <li><strong>Liquid Fraction:</strong> Ammonium-rich liquid fertilizer injected directly into pasture fertigation networks, replacing mineral NPK inputs.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 10 -->
+            <div class="slide" data-slide-title="Maintenance and Operational Protocols">
+                <h2 class="slide-title">Maintenance &amp; Operational Protocols</h2>
+                <p class="slide-subtitle">Standard Operating Procedures for Max System Uptime</p>
+                <div class="card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Maintenance Task</th>
+                                <th>Frequency</th>
+                                <th>Operational Procedure</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Iron Sponge Media Regeneration</strong></td>
+                                <td>Bi-Monthly</td>
+                                <td>Isolate vessel, perform controlled aeration purge to re-oxidize iron oxide media.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Agitator Seal Lubrication</strong></td>
+                                <td>Monthly</td>
+                                <td>Inspect mechanical seal fluid levels and apply food-grade synthetic grease.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Desiccant Condensate Drain Purge</strong></td>
+                                <td>Daily (Automated)</td>
+                                <td>Check automated solenoid drain lines for blockage or sediment buildup.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Probing &amp; Sensor Calibration</strong></td>
+                                <td>Quarterly</td>
+                                <td>Calibrate inline pH and ORP sensors using standardized buffer solution protocols.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- SLIDE 11 -->
+            <div class="slide" data-slide-title="Capital Investment and Engineering Financials">
+                <h2 class="slide-title">Capital Investment &amp; Engineering Financials</h2>
+                <p class="slide-subtitle">CAPEX Allocation for Biogas Core System</p>
+                <div class="grid-3">
+                    <div class="card card-highlight">
+                        <div class="card-title">Digester Vessel &amp; Agitation</div>
+                        <div class="metric-value">ZAR 480k</div>
+                        <p class="card-body">Insulated CSTR tank structure, top-entry impeller, and inner heat exchange loops.</p>
+                    </div>
+                    <div class="card card-highlight">
+                        <div class="card-title">Gas Purification Skids</div>
+                        <div class="metric-value">ZAR 320k</div>
+                        <p class="card-body">Desiccant dryers, iron sponge scrubbers, PSA carbon column, and automated valve arrays.</p>
+                    </div>
+                    <div class="card card-highlight">
+                        <div class="card-title">30kW Co-Gen Unit</div>
+                        <div class="metric-value">ZAR 270k</div>
+                        <p class="card-body">Biogas-adapted internal combustion engine, generator head, and exhaust heat exchangers.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 12 -->
+            <div class="slide active" data-slide-title="Module Certification and Execution Governance">
+                <div class="title-slide-content">
+                    <p style="color: var(--accent-green); font-weight: 600; letter-spacing: 2px; margin-bottom: 10px;">MODULE 2 COMPLETE • SCAPUSH PRECISION</p>
+                    <h1 style="font-size: 2.2rem;">Biogas &amp; Co-Gen Architecture Certified</h1>
+                    <p class="slide-subtitle" style="text-align: center; font-size: 1.3rem; color: #ffffff;">Continuous High-Efficiency Bio-Energy</p>
+                    
+                    <div class="card card-highlight" style="margin-top: 20px; text-align: left;">
+                        <div class="grid-2">
+                            <div>
+                                <p class="card-title" style="font-size: 0.95rem;">System Architect &amp; Contact</p>
+                                <p class="card-body">Sipho Wiseman Khuzwayo</p>
+                                <p class="card-body">siphokhuzwayo12@gmail.com</p>
+                            </div>
+                            <div>
+                                <p class="card-title" style="font-size: 0.95rem;">Execution Governance</p>
+                                <p class="card-body">Precision Alliance Development Pipeline | Just Energy Transition</p>
+                                <p class="card-body">Scapush Precision Execution Standard</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <div>Scapush Precision Execution | Lwandile Engineering Projects</div>
+            <div class="controls">
+                <button class="btn" id="prevBtn" onclick="changeSlide(-1)">Previous</button>
+                <span class="slide-counter" id="slideCounter">12 / 12</span>
+                <button class="btn" id="nextBtn" onclick="changeSlide(1)">Next</button>
+            </div>
+            <div>Architect: Sipho Wiseman Khuzwayo</div>
+        </footer>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const slideCounter = document.getElementById('slideCounter');
+        let isSpeaking = false;
+
+        function showSlide(index) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                document.getElementById('narrateBtn').textContent = '🔊 Read Current Slide Aloud';
+            }
+
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+            slideCounter.textContent = `${index + 1} / ${slides.length}`;
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) {
+                currentSlide = slides.length - 1;
+            } else if (currentSlide >= slides.length) {
+                currentSlide = 0;
+            }
+            showSlide(currentSlide);
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight' || event.key === ' ') {
+                changeSlide(1);
+            } else if (event.key === 'ArrowLeft') {
+                changeSlide(-1);
+            }
+        });
+
+        function narrateCurrentSlide() {
+            if (!('speechSynthesis' in window)) {
+                alert('Text-to-speech is not supported by your browser.');
+                return;
+            }
+
+            const btn = document.getElementById('narrateBtn');
+
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                btn.textContent = '🔊 Read Current Slide Aloud';
+                return;
+            }
+
+            const activeSlideElement = slides[currentSlide];
+            const slideTitle = activeSlideElement.getAttribute('data-slide-title') || `Slide ${currentSlide + 1}`;
+            
+            const textNodes = activeSlideElement.querySelectorAll('h1, h2, h3, .card-title, .card-body, .metric-value, .metric-label, td, li, .teachability-narrator-box');
+            let slideNarration = `Slide ${currentSlide + 1}: ${slideTitle}. `;
+
+            textNodes.forEach(node => {
+                const cleanText = node.innerText.replace(/[\n\r]+/g, ' ').trim();
+                if (cleanText) {
+                    slideNarration += cleanText + '. ';
+                }
+            });
+
+            const utterance = new SpeechSynthesisUtterance(slideNarration);
+            utterance.lang = 'en-US';
+            utterance.volume = 1.0; 
+            utterance.rate = 0.95;  
+            utterance.pitch = 1.0;
+
+            const voices = window.speechSynthesis.getVoices();
+            const preferredVoice = voices.find(v => v.lang.includes('en') && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Microsoft')));
+            if (preferredVoice) {
+                utterance.voice = preferredVoice;
+            }
+
+            utterance.onend = function() {
+                isSpeaking = false;
+                btn.textContent = '🔊 Read Current Slide Aloud';
+            };
+
+            utterance.onerror = function() {
+                isSpeaking = false;
+                btn.textContent = '🔊 Read Current Slide Aloud';
+            };
+
+            isSpeaking = true;
+            btn.textContent = '⏹️ Stop Narration';
+            
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.speak(utterance);
+        }
+
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.onvoiceschanged = function() {
+                window.speechSynthesis.getVoices();
+            };
+        }
+    </script>
+
+</body></html>

@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)file:///C:/Users/ASUS/Downloads/gemini-code-1791971565611.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lwandile Engineering Projects | Sovereign Bio-Engine Business Plan MVP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./Lwandile Engineering Projects _ Sovereign Bio-Engine Business Plan MVP_files/css2" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #050B14;
+            --bg-card: #0A1628;
+            --bg-card-hover: #10223D;
+            --sunny-gold: #FFB800;
+            --sunny-gold-glow: rgba(255, 184, 0, 0.25);
+            --sunny-gold-dark: #D99B00;
+            --teal-accent: #0D9488;
+            --teal-bright: #14B8A6;
+            --teal-glow: rgba(20, 184, 166, 0.15);
+            --border-color: rgba(20, 184, 166, 0.25);
+            --border-light: rgba(255, 255, 255, 0.08);
+            --text-primary: #FFFFFF;
+            --text-secondary: #94A3B8;
+            --text-muted: #64748B;
+            --font-heading: 'Space Grotesk', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 10%, rgba(255, 184, 0, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(13, 148, 136, 0.08) 0%, transparent 40%);
+        }
+
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            max-width: 1400px;
+            max-height: 900px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 30px 40px;
+            background: radial-gradient(circle at top right, #0A1628 0%, var(--bg-main) 70%);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 15px;
+        }
+
+        .brand-logo {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo span {
+            color: var(--sunny-gold);
+        }
+
+        .brand-logo::before {
+            content: '';
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background-color: var(--sunny-gold);
+            border-radius: 2px;
+        }
+
+        .header-tools {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .narrate-btn {
+            background: rgba(20, 184, 166, 0.15);
+            border: 1px solid var(--teal-bright);
+            color: var(--teal-bright);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .narrate-btn:hover {
+            background: var(--teal-bright);
+            color: #000;
+        }
+
+        .module-badge {
+            background: rgba(255, 184, 0, 0.1);
+            border: 1px solid var(--sunny-gold);
+            color: var(--sunny-gold);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .slide-viewport {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            justify-content: center;
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide-title {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .slide-subtitle {
+            font-size: 1.05rem;
+            color: var(--teal-bright);
+            margin-bottom: 25px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 20px;
+            position: relative;
+            transition: border-color 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--teal-accent);
+        }
+
+        .card-gold {
+            border-top: 3px solid var(--sunny-gold);
+        }
+
+        .card-teal {
+            border-top: 3px solid var(--teal-bright);
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            color: var(--sunny-gold);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .card-body {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .teachability-box {
+            margin-top: 15px;
+            background: rgba(20, 184, 166, 0.05);
+            border-left: 3px solid var(--teal-bright);
+            padding: 10px 14px;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            line-height: 1.45;
+        }
+
+        .teachability-box strong {
+            color: var(--teal-bright);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .metric-value {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--sunny-gold);
+            line-height: 1.1;
+            margin: 6px 0;
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 5px;
+        }
+
+        th, td {
+            padding: 10px 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        th {
+            background-color: rgba(13, 148, 136, 0.15);
+            color: var(--teal-bright);
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        td {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        ul.styled-list {
+            list-style: none;
+        }
+
+        ul.styled-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        ul.styled-list li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--teal-bright);
+            font-size: 0.7rem;
+            top: 2px;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-light);
+            padding-top: 15px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .controls {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            color: var(--text-primary);
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--teal-bright);
+            color: #000;
+            border-color: var(--teal-bright);
+        }
+
+        .slide-counter {
+            font-weight: 700;
+            color: var(--sunny-gold);
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .title-slide-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .title-slide-content h1 {
+            font-size: 2.8rem;
+            line-height: 1.15;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--sunny-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .founder-box {
+            background: rgba(10, 22, 40, 0.8);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--sunny-gold);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<div class="presentation-container">
+    <header>
+        <div class="brand-logo">Lwandile <span>Engineering Projects</span></div>
+        <div class="header-tools">
+            <button class="narrate-btn" id="narrateBtn" onclick="narrateCurrentSlide()">🔊 Read Slide Aloud</button>
+            <div class="module-badge">MVP MASTER PLAN</div>
+        </div>
+    </header>
+
+    <div class="slide-viewport">
+
+        <!-- SLIDE 1: TITLE -->
+        <div class="slide" data-slide-title="Sovereign Bio-Engine Business Plan Overview">
+            <div class="title-slide-content">
+                <p style="color: var(--teal-bright); font-weight: 700; letter-spacing: 2px; margin-bottom: 10px;">AGRIVOLTAICS &amp; HYDROPONICS TECHNOLOGIES</p>
+                <h1>Sovereign Bio-Engine Architecture</h1>
+                <p class="slide-subtitle" style="text-align: center;">Integrated Off-Grid Agricultural-Industrial System | ZAR 3.1M Locked CapEx Facility</p>
+                
+                <div class="founder-box">
+                    <div class="grid-2">
+                        <div>
+                            <strong style="color: var(--sunny-gold);">Founder &amp; Lead Architect:</strong> Sipho Khuzwayo
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Inclusive Legacy Architect @ Lwandile Engineering Projects</p>
+                        </div>
+                        <div>
+                            <strong style="color: var(--teal-bright);">Location &amp; Strategic Partner:</strong> Kinross &amp; Secunda Corridor | Prestige Cosmic Venture
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Email: siphokhuzwayo12@gmail.com | Phone: +27 73 905 6846</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="teachability-box" style="text-align: left; margin-top: 15px;">
+                    <strong>Steward's Teachability Note:</strong> Welcome to the master business plan MVP. This architecture locks facility capital at exactly ZAR 3.1M, establishing sovereign energy and food autonomy.
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: BACKGROUND & PROMOTERS -->
+        <div class="slide active" data-slide-title="Background and Promoters">
+            <h2 class="slide-title">01. Background &amp; Promoters</h2>
+            <p class="slide-subtitle">Institutional Governance &amp; Strategic Execution Framework</p>
+            <div class="grid-2">
+                <div class="card card-teal">
+                    <div class="card-title">Promoters &amp; Strategic Partnership</div>
+                    <div class="card-body">
+                        The initiative is spearheaded by <strong>Lwandile Engineering Projects</strong> in direct partnership with <strong>Prestige Cosmic Venture</strong>. This collaboration fuses specialized agrivoltaic design with industrial thermal systems.
+                    </div>
+                    <div class="teachability-box">
+                        <strong>Narrator Insight:</strong> Designed to withstand municipal instability through self-reliant structural engineering.
+                    </div>
+                </div>
+                <div class="card card-gold">
+                    <div class="card-title">Core Business Strategy</div>
+                    <div class="card-body">
+                        Lwandile Engineering operates as an agricultural-industrial asset developer. The model eliminates utility grid dependencies, shields operating margins against inflation, and optimizes livestock production densities.
+                    </div>
+                    <div class="teachability-box">
+                        <strong>Narrator Insight:</strong> Eliminates exposure to escalating Eskom tariff hikes.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: PROJECT DESCRIPTION & SCALE -->
+        <div class="slide" data-slide-title="Project Description and Production Scale">
+            <h2 class="slide-title">02. Project Description &amp; Scale</h2>
+            <p class="slide-subtitle">Kinross &amp; Secunda Corridor Asset Deployment</p>
+            <div class="grid-2">
+                <div class="card card-gold">
+                    <div class="card-title">Regional Footprint</div>
+                    <div class="card-body">
+                        Strategically located in the <strong>Kinross &amp; Secunda industrial corridor</strong>, Mpumalanga. The facility enjoys direct proximity to agricultural supply chains and regional mining community distribution networks.
+                    </div>
+                    <div class="teachability-box">
+                        <strong>Narrator Insight:</strong> Prime geographical placement in South Africa's energy heartland.
+                    </div>
+                </div>
+                <div class="card card-teal">
+                    <div class="card-title">Technical Architecture Highlights</div>
+                    <ul class="styled-list">
+                        <li><strong>Co-Generation Sync:</strong> Diverts generator exhaust jackets into sub-floor radiant heating.</li>
+                        <li><strong>Passive Climate Control:</strong> Convective roof ridge chimneys minimize electrical ventilation loads.</li>
+                        <li><strong>Biosecurity Partitioning:</strong> Limits bio-pathogen exposure to maximum 25% zone capacities.</li>
+                    </ul>
+                    <div class="teachability-box">
+                        <strong>Narrator Insight:</strong> Maximizes thermal efficiency while safeguarding animal health.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: COMMERCIAL CHANNELS & OUTPUTS -->
+        <div class="slide" data-slide-title="Commercial Channels and Target Markets">
+            <h2 class="slide-title">Commercial Channels &amp; Target Markets</h2>
+            <p class="slide-subtitle">High-Velocity Livestock &amp; Bio-Solids Monetization</p>
+            <div class="card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Production Unit</th>
+                            <th>Operational Cycle</th>
+                            <th>Target Output Volume</th>
+                            <th>Unit Pricing Base</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Broiler Sprint Barn</strong></td>
+                            <td>6 Waves / Year</td>
+                            <td>5,760 broilers per wave</td>
+                            <td>ZAR 38.00 / kg</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Swine Grower Pipeline</strong></td>
+                            <td>3 Batches / Year</td>
+                            <td>160 pigs (7kg to 70kg carcass wt)</td>
+                            <td>ZAR 32.00 / kg</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bio-Solids Processing</strong></td>
+                            <td>Continuous Digestate</td>
+                            <td>High-nutrient organic fertilizer</td>
+                            <td>Commercial Bagged Rates</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="teachability-box" style="margin-top: 15px;">
+                    <strong>Narrator Insight:</strong> Multi-stream revenue generation secures rapid cash velocity and resilience.
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: PROJECT RATIONALE & COMPETITIVE ADVANTAGES -->
+        <div class="slide" data-slide-title="Project Rationale and Competitive Advantages">
+            <h2 class="slide-title">03 &amp; 04. Rationale &amp; Competitive Advantages</h2>
+            <p class="slide-subtitle">Insulating Operations Against Market Volatility</p>
+            <div class="grid-2">
+                <div class="card card-teal">
+                    <div class="card-title">Project Rationale</div>
+                    <div class="card-body">
+                        Conventional livestock operations face severe threats from municipal tariff hikes, load shedding, and cold snaps. Coupling solar generation with anaerobic digestion turns waste liabilities into reliable power and heating.
+                    </div>
+                    <div class="teachability-box">
+                        <strong>Narrator Insight:</strong> Converts waste into an operational asset.
+                    </div>
+                </div>
+                <div class="card card-gold">
+                    <div class="card-title">Competitive Advantages</div>
+                    <ul class="styled-list">
+                        <li><strong>Off-Grid Autonomy:</strong> Operates fully detached under a ZAR 1.80/kWh tariff shield.</li>
+                        <li><strong>Radiant Underfloor Heat:</strong> Utilizes engine jacket exhaust with zero extra fuel cost.</li>
+                        <li><strong>Modular Biosecurity:</strong> 4-pad firewalls, 2% concrete slopes, and UV sterilizers.</li>
+                    </ul>
+                    <div class="teachability-box">
+                        <strong>Narrator Insight:</strong> Unrivaled technical protection and cost efficiency.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: RISKS & SYSTEM DEFENSES -->
+        <div class="slide" data-slide-title="Risks and System Defenses">
+            <h2 class="slide-title">05. Risks &amp; System Defenses</h2>
+            <p class="slide-subtitle">Proactive Engineering &amp; Automated Fail-safes</p>
+            <div class="card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Risk Scenario Event</th>
+                            <th>Impact Profile</th>
+                            <th>Automated System Defenses Deployed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Severe Highveld Storms</strong></td>
+                            <td><span style="color: #FBBF24; font-weight: 600;">Moderate</span></td>
+                            <td>Dwarf wall structural barriers &amp; 90-second automated PVC winch curtains.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Extended Solar Drought</strong></td>
+                            <td><span style="color: var(--sunny-gold); font-weight: 600;">High</span></td>
+                            <td>Exhaust steam jacket co-generation coupled with BESS reserve battery buffers.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pathogen Outbreak</strong></td>
+                            <td><span style="color: #EF4444; font-weight: 600;">Critical</span></td>
+                            <td>Automated UV sterilization portals &amp; 4-pad structural firewalls.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="teachability-box" style="margin-top: 15px;">
+                    <strong>Narrator Insight:</strong> Every risk is met with an automated engineering countermeasure.
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: SALIENT FINANCIAL FIGURES -->
+        <div class="slide" data-slide-title="Salient Financial Figures and Locked CapEx">
+            <h2 class="slide-title">06. Salient Financial Figures</h2>
+            <p class="slide-subtitle">Locked ZAR 3,100,000 MVP Facility Framework</p>
+            <div class="grid-3">
+                <div class="card card-gold">
+                    <div class="card-title">Total CapEx</div>
+                    <div class="metric-value">R 3.10M</div>
+                    <div class="metric-label">Locked Facility Budget</div>
+                    <div class="teachability-box">Strict capital allocation.</div>
+                </div>
+                <div class="card card-teal">
+                    <div class="card-title">Payback Period</div>
+                    <div class="metric-value">1.9 yrs</div>
+                    <div class="metric-label">Rapid Capital Recovery</div>
+                    <div class="teachability-box">Exceeds investor benchmarks.</div>
+                </div>
+                <div class="card card-gold">
+                    <div class="card-title">Tariff Shield</div>
+                    <div class="metric-value">R1.80</div>
+                    <div class="metric-label">Per kWh Equivalent</div>
+                    <div class="teachability-box">Insulated from Eskom hikes.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 8: STRATEGIC FIT & CAPITAL REQUEST -->
+        <div class="slide" data-slide-title="Strategic Fit and Capital Request">
+            <h2 class="slide-title">07 &amp; 08. Strategic Fit &amp; Capital Request</h2>
+            <p class="slide-subtitle">Just Energy Transition &amp; Capital Deployment</p>
+            <div class="grid-2">
+                <div class="card card-teal">
+                    <div class="card-title">Strategic Fit</div>
+                    <div class="card-body">
+                        Directly aligns with Mpumalanga's Just Energy Transition (JET) framework, redirecting former mining community corridors into high-yield decentralized agricultural and renewable energy production nodes.
+                    </div>
+                    <div class="teachability-box">
+                        <strong>Narrator Insight:</strong> Empowers local communities through sustainable green tech.
+                    </div>
+                </div>
+                <div class="card card-gold">
+                    <div class="card-title">Capital Request Structure</div>
+                    <div class="card-body">
+                        Total funding requirement locked at <strong>ZAR 3,100,000</strong>, covering turnkey civil works, biogas biodigester installation, agrivoltaic panel arrays, and initial bio-security asset commissioning.
+                    </div>
+                    <div class="teachability-box">
+                        <strong>Narrator Insight:</strong> Fully bankable, investor-ready deployment model.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 9: ROADMAP & TIMELINE -->
+        <div class="slide" data-slide-title="Execution Roadmap and Timeline">
+            <h2 class="slide-title">09. Execution Roadmap &amp; Timeline</h2>
+            <p class="slide-subtitle">Milestones from Financial Close to First Revenue</p>
+            <div class="grid-3">
+                <div class="card card-teal">
+                    <div class="card-title">Month 0 - 2</div>
+                    <div class="card-body">Financial close, site clearing in Kinross, foundational earthworks, and procurement of long-lead biodigester equipment.</div>
+                </div>
+                <div class="card card-gold">
+                    <div class="card-title">Month 3 - 8</div>
+                    <div class="card-body">Structural assembly of broiler and swine sprint barns, agrivoltaic array mounting, and automated telemetry wiring.</div>
+                </div>
+                <div class="card card-teal">
+                    <div class="card-title">Month 9 - 12</div>
+                    <div class="card-body">Cold and hot system commissioning, 72-hour continuous performance test, and commercial off-take activation.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 10: REFERENCES & TECHNICAL GLOSSARY -->
+        <div class="slide" data-slide-title="References and Technical Glossary">
+            <h2 class="slide-title">10 &amp; 11. References &amp; Technical Glossary</h2>
+            <p class="slide-subtitle">Governance Standards &amp; Terminology Reference</p>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-title">Regulatory References</div>
+                    <ul class="styled-list">
+                        <li>National Environmental Management Act (NEMA).</li>
+                        <li>Occupational Health and Safety Act (OHSA 85 of 1993).</li>
+                        <li>Municipal Bylaws for Agricultural Processing in Mpumalanga.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-title">Technical Glossary</div>
+                    <ul class="styled-list">
+                        <li><strong>Agrivoltaics:</strong> Dual-use land systems combining solar PV and agriculture.</li>
+                        <li><strong>Digestate:</strong> Nutrient-rich organic fertilizer byproduct of anaerobic digestion.</li>
+                        <li><strong>BESS:</strong> Battery Energy Storage System for off-grid stabilization.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div>Lwandile Engineering Projects | Sovereign Bio-Engine Architecture MVP</div>
+        <div class="controls">
+            <button class="btn" onclick="changeSlide(-1)">Previous</button>
+            <span class="slide-counter" id="slideCounter">2 / 10</span>
+            <button class="btn" onclick="changeSlide(1)">Next</button>
+        </div>
+        <div>Architect: Sipho Khuzwayo</div>
+    </footer>
+</div>
+
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const slideCounter = document.getElementById('slideCounter');
+let isSpeaking = false;
+
+function showSlide(index) {
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        document.getElementById('narrateBtn').textContent = '🔊 Read Slide Aloud';
+    }
+
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+            slide.classList.add('active');
+        }
+    });
+    slideCounter.textContent = `${index + 1} / ${slides.length}`;
+}
+
+function changeSlide(direction) {
+    currentSlide += direction;
+    if (currentSlide < 0) {
+        currentSlide = slides.length - 1;
+    } else if (currentSlide >= slides.length) {
+        currentSlide = 0;
+    }
+    showSlide(currentSlide);
+}
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'ArrowRight' || event.key === ' ') {
+        changeSlide(1);
+    } else if (event.key === 'ArrowLeft') {
+        changeSlide(-1);
+    }
+});
+
+function narrateCurrentSlide() {
+    if (!('speechSynthesis' in window)) {
+        alert('Text-to-speech is not supported by your browser.');
+        return;
+    }
+
+    const btn = document.getElementById('narrateBtn');
+
+    if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        btn.textContent = '🔊 Read Slide Aloud';
+        return;
+    }
+
+    const activeSlideElement = slides[currentSlide];
+    const slideTitle = activeSlideElement.getAttribute('data-slide-title') || `Slide ${currentSlide + 1}`;
+    
+    const textNodes = activeSlideElement.querySelectorAll('h1, h2, h3, .card-title, .card-body, .metric-value, .metric-label, td, li, .teachability-box');
+    let slideNarration = `Slide ${currentSlide + 1}: ${slideTitle}. `;
+
+    textNodes.forEach(node => {
+        const cleanText = node.innerText.replace(/[\n\r]+/g, ' ').trim();
+        if (cleanText) {
+            slideNarration += cleanText + '. ';
+        }
+    });
+
+    const utterance = new SpeechSynthesisUtterance(slideNarration);
+    utterance.lang = 'en-US';
+    utterance.volume = 1.0; 
+    utterance.rate = 0.95;  
+    utterance.pitch = 1.0;
+
+    utterance.onend = function() {
+        isSpeaking = false;
+        btn.textContent = '🔊 Read Slide Aloud';
+    };
+
+    utterance.onerror = function() {
+        isSpeaking = false;
+        btn.textContent = '🔊 Read Slide Aloud';
+    };
+
+    isSpeaking = true;
+    btn.textContent = '⏹️ Stop Narration';
+    
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utterance);
+}
+</script>
+
+
+</body></html>

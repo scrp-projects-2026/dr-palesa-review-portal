@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)file:///C:/Users/ASUS/Downloads/gemini-code-1791969048509.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOD-Z2-07: Financial Modeling, Capital Structuring &amp; Value Realization</title>
+    <style>
+        :root {
+            --bg-primary: #0a0e14;
+            --bg-card: #121820;
+            --bg-card-alt: #1a222d;
+            --accent-green: #00e676;
+            --accent-gold: #ffb300;
+            --accent-blue: #00e5ff;
+            --accent-purple: #b388ff;
+            --accent-emerald: #00bfa5;
+            --text-primary: #f0f4f8;
+            --text-secondary: #94a3b8;
+            --border-color: #24303f;
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-family);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            max-width: 1600px;
+            max-height: 950px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 30px 40px;
+            background: radial-gradient(circle at top right, #1a2636 0%, var(--bg-primary) 60%);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .brand-logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo::before {
+            content: '';
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background-color: var(--accent-green);
+            border-radius: 2px;
+        }
+
+        .header-center-tools {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .narrate-slide-btn {
+            background: rgba(0, 230, 118, 0.15);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .narrate-slide-btn:hover {
+            background: var(--accent-green);
+            color: #000;
+        }
+
+        .module-badge {
+            background: rgba(0, 230, 118, 0.1);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .slide-viewport {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            justify-content: center;
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        .slide-subtitle {
+            font-size: 1.05rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            position: relative;
+            transition: border-color 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--accent-green);
+        }
+
+        .card-highlight {
+            border-top: 3px solid var(--accent-green);
+        }
+
+        .card-gold {
+            border-top: 3px solid var(--accent-gold);
+        }
+
+        .card-blue {
+            border-top: 3px solid var(--accent-blue);
+        }
+
+        .card-purple {
+            border-top: 3px solid var(--accent-purple);
+        }
+
+        .card-emerald {
+            border-top: 3px solid var(--accent-emerald);
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .card-body {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Teachability Narrator Box */
+        .teachability-narrator-box {
+            margin-top: 15px;
+            background: rgba(0, 230, 118, 0.05);
+            border-left: 3px solid var(--accent-green);
+            padding: 10px 14px;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.88rem;
+            color: var(--text-primary);
+            line-height: 1.45;
+        }
+
+        .teachability-narrator-box strong {
+            color: var(--accent-green);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .metric-value {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--accent-green);
+            line-height: 1.1;
+            margin: 6px 0;
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .formula-box {
+            background: var(--bg-card-alt);
+            border: 1px solid var(--accent-green);
+            border-radius: 6px;
+            padding: 10px;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            color: var(--accent-green);
+            margin: 10px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 5px;
+        }
+
+        th, td {
+            padding: 10px 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--bg-card-alt);
+            color: var(--accent-gold);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        td {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+
+        tr:nth-child(even) td {
+            background-color: rgba(255, 255, 255, 0.01);
+        }
+
+        ul.tech-list {
+            list-style: none;
+        }
+
+        ul.tech-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        ul.tech-list li::before {
+            content: '■';
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+            font-size: 0.75rem;
+            top: 2px;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 12px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .controls {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .btn {
+            background: var(--bg-card-alt);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 6px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--accent-green);
+            color: #000;
+            border-color: var(--accent-green);
+        }
+
+        .slide-counter {
+            font-weight: 600;
+            color: var(--accent-gold);
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .title-slide-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .title-slide-content h1 {
+            font-size: 2.8rem;
+            line-height: 1.15;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .meta-table {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 25px;
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-item .label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .meta-item .value {
+            font-size: 1rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="presentation-container">
+        <header>
+            <div class="brand-logo">Lwandile Engineering Projects</div>
+            <div class="header-center-tools">
+                <button class="narrate-slide-btn" id="narrateBtn" onclick="narrateCurrentSlide()">🔊 Read Current Slide Aloud</button>
+                <div class="module-badge">MOD-Z2-07 | NQF 6</div>
+            </div>
+        </header>
+
+        <div class="slide-viewport">
+
+            <!-- SLIDE 1 -->
+            <div class="slide" data-slide-title="Capital and Operations Modeling Overview">
+                <div class="title-slide-content">
+                    <p style="color: var(--accent-green); font-weight: 600; letter-spacing: 2px; margin-bottom: 10px;">CAPITAL &amp; OPERATIONS MODELING • SCAPUSH PRECISION</p>
+                    <h1>Financial Modeling, Capital Structuring &amp; Value Realization</h1>
+                    <p class="slide-subtitle" style="text-align: center;">Itemized BOQ, Turnkey CapEx, OpEx Optimization &amp; EBITDA Velocity Metrics</p>
+                    
+                    <div class="meta-table">
+                        <div class="meta-item">
+                            <div class="label">System Architect</div>
+                            <div class="value">Sipho Wiseman Khuzwayo</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="label">Unit Standard</div>
+                            <div class="value">US 119676 / US 242810</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="label">NQF Level</div>
+                            <div class="value">Level 6</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="label">Credits &amp; Weight</div>
+                            <div class="value">30 Credits</div>
+                        </div>
+                    </div>
+                    <div class="teachability-narrator-box" style="text-align: left; margin-top: 20px;">
+                        <strong>Teachability Narrator:</strong> Welcome to Module Z2-07, architected under the leadership of Sipho Wiseman Khuzwayo and executed via Scapush Precision standards. This module covers rigorous financial modeling, itemized BOQ structuring, and EBITDA velocity for bankable engineering assets.
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 2 -->
+            <div class="slide" data-slide-title="Executive Financial Summary and Commercial Baseline">
+                <h2 class="slide-title">Executive Financial Summary &amp; Commercial Baseline</h2>
+                <p class="slide-subtitle">5 MW Biogas-to-Energy &amp; Hydronic Reclamation Facility</p>
+                <div class="grid-3">
+                    <div class="card card-highlight">
+                        <div class="card-title">Turnkey CapEx</div>
+                        <div class="metric-value">R 181.12M</div>
+                        <p class="card-body">Total EPC project expenditure including civil, mechanical, electrical, and 8% contingency.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Comprehensive capital allocation covering all turnkey project phases.
+                        </div>
+                    </div>
+                    <div class="card card-gold">
+                        <div class="card-title">Annual Operating Cost</div>
+                        <div class="metric-value">R 42.90M</div>
+                        <p class="card-body">Annualized OpEx inclusive of feedstocks, maintenance, direct labor, and utility overheads.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Realistic operating expenditure ensuring sustained plant reliability.
+                        </div>
+                    </div>
+                    <div class="card card-emerald">
+                        <div class="card-title">Annual EBITDA</div>
+                        <div class="metric-value">R 66.43M</div>
+                        <p class="card-body">Operational cash flow yield representing a highly resilient 60.8% EBITDA margin profile.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> High conversion margins secure robust investor confidence and debt serviceability.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 3 -->
+            <div class="slide" data-slide-title="Bill of Quantities Civil and Mechanical">
+                <h2 class="slide-title">Bill of Quantities (BOQ): Civil &amp; Mechanical</h2>
+                <p class="slide-subtitle">CapEx Breakdown — Work Packages 1.0 &amp; 2.0</p>
+                <div class="card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>Work Package / Scope</th>
+                                <th>Specifications</th>
+                                <th>Cost (ZAR)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1.1</strong></td>
+                                <td>Civil Earthworks &amp; Site Prep</td>
+                                <td>Excavation, terracing, and drainage for 12,000 m² site</td>
+                                <td>R 6,500,000</td>
+                            </tr>
+                            <tr>
+                                <td><strong>1.2</strong></td>
+                                <td>Concrete &amp; Containment</td>
+                                <td>Pads, bund walls (110% volume), process sumps</td>
+                                <td>R 14,200,000</td>
+                            </tr>
+                            <tr>
+                                <td><strong>1.3</strong></td>
+                                <td>Structural Steelwork</td>
+                                <td>Acoustic enclosures, elevated pipe racks, walkways</td>
+                                <td>R 9,800,000</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2.1</strong></td>
+                                <td>Anaerobic Digester Vessels</td>
+                                <td>2x 3,500 m³ CSTR insulated tanks with mixers</td>
+                                <td>R 28,500,000</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2.3</strong></td>
+                                <td>Membrane Reclamation Skid</td>
+                                <td>Multi-stage Ultrafiltration (UF) &amp; Reverse Osmosis (RO)</td>
+                                <td>R 16,800,000</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2.5</strong></td>
+                                <td>CHP Generation System</td>
+                                <td>2x 2.5 MW Lean-burn gas engines &amp; heat boilers</td>
+                                <td>R 42,000,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="teachability-narrator-box" style="margin-top: 10px;">
+                        <strong>Narrator Insight:</strong> Granular BOQ transparency ensures precise cost control across civil and mechanical domains.
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 4 -->
+            <div class="slide" data-slide-title="Bill of Quantities Electrical and EPC">
+                <h2 class="slide-title">Bill of Quantities (BOQ): Electrical &amp; EPC</h2>
+                <p class="slide-subtitle">CapEx Breakdown — Work Packages 3.0, 4.0 &amp; 5.0</p>
+                <div class="card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>Work Package / Scope</th>
+                                <th>Specifications</th>
+                                <th>Cost (ZAR)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>3.1</strong></td>
+                                <td>HV/MV Substation</td>
+                                <td>11kV/33kV step-up transformer, switchgear, protection</td>
+                                <td>R 13,500,000</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3.2</strong></td>
+                                <td>Automation &amp; IoT Infrastructure</td>
+                                <td>Redundant PLC, SCADA licenses, ArIoT edge nodes</td>
+                                <td>R 7,600,000</td>
+                            </tr>
+                            <tr>
+                                <td><strong>4.1</strong></td>
+                                <td>Detailed Engineering &amp; FEED</td>
+                                <td>Process, civil, electrical, and control system design</td>
+                                <td>R 9,500,000</td>
+                            </tr>
+                            <tr>
+                                <td><strong>4.2</strong></td>
+                                <td>Project Management &amp; EPCM</td>
+                                <td>Site supervision, QA/QC, safety officer overheads</td>
+                                <td>R 8,200,000</td>
+                            </tr>
+                            <tr>
+                                <td><strong>5.1</strong></td>
+                                <td>Unforeseen Project Contingency</td>
+                                <td>8% allocated across civil, mechanical &amp; electrical</td>
+                                <td>R 13,416,000</td>
+                            </tr>
+                            <tr style="border-top: 2px solid var(--accent-green);">
+                                <td colspan="3"><strong>TOTAL TURNKEY CAPITAL EXPENDITURE (CAPEX)</strong></td>
+                                <td><strong style="color: var(--accent-green);">R 181,116,000</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="teachability-narrator-box" style="margin-top: 10px;">
+                        <strong>Narrator Insight:</strong> Fully reconciled capital baseline incorporating electrical sub-stations and risk contingency reserves.
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 5 -->
+            <div class="slide" data-slide-title="Annual Operating Expenditure Allocation">
+                <h2 class="slide-title">Annual Operating Expenditure (OpEx) Allocation</h2>
+                <p class="slide-subtitle">Cost Centers for Full-Scale Facility Operations (R 42.9M / year)</p>
+                <div class="grid-2">
+                    <div class="card card-gold">
+                        <div class="card-title">Direct Operational Cost Centers</div>
+                        <ul class="tech-list">
+                            <li><strong>Feedstock &amp; Chemicals:</strong> R 12.4M (Substrates, RO reagents, anti-foaming).</li>
+                            <li><strong>Direct Operations Labor:</strong> R 11.2M (24/7 engineers, SCADA, safety staff).</li>
+                            <li><strong>Maintenance &amp; Spares:</strong> R 9.8M (Engine overhauls, membrane modules).</li>
+                        </ul>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Secures reliable raw material supply and specialized technical maintenance support.
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Indirect &amp; Compliance Cost Centers</div>
+                        <ul class="tech-list">
+                            <li><strong>Utilities &amp; Standby Power:</strong> R 3.6M (Grid connections, startup power).</li>
+                            <li><strong>SG&amp;A &amp; Telemetry Administration:</strong> R 3.1M (Commercial off-take platform).</li>
+                            <li><strong>Environmental Compliance:</strong> R 2.8M (Water license, SANS audits, insurance).</li>
+                        </ul>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Accounts for administrative overhead and strict regulatory compliance.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 6 -->
+            <div class="slide" data-slide-title="Multi-Stream Revenue Generation Architecture">
+                <h2 class="slide-title">Multi-Stream Revenue Generation Architecture</h2>
+                <p class="slide-subtitle">Diversified Monetization totaling R 109.33M / year</p>
+                <div class="grid-2">
+                    <div class="card">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Revenue Vector</th>
+                                    <th>Annual Output Basis</th>
+                                    <th>Value (ZAR)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Power Wheeling Off-take</strong></td>
+                                    <td>40.29 GWh @ R1.65 / kWh</td>
+                                    <td>R 66,478,500</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Organic Fertilizer / Digestate</strong></td>
+                                    <td>18,000 Tons @ R1,200 / Ton</td>
+                                    <td>R 21,600,000</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Reclaimed Hydronic Water</strong></td>
+                                    <td>350,000 m³ @ R45.00 / m³</td>
+                                    <td>R 15,750,000</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Carbon Offsets &amp; Credits</strong></td>
+                                    <td>25,000 tCO₂e @ R220 / tCO₂e</td>
+                                    <td>R 5,500,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card card-emerald">
+                        <div class="card-title">Revenue Concentration Profile</div>
+                        <p class="card-body">Energy wheeling provides a baseline 60.8% of top-line revenue, complemented by high-margin circular byproducts (39.2%) that insulate cash flow from single-market shocks.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Multi-stream asset monetization mitigates market volatility risk.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 7 -->
+            <div class="slide" data-slide-title="EBITDA Velocity and Margin Analysis">
+                <h2 class="slide-title">EBITDA Velocity &amp; Margin Analysis</h2>
+                <p class="slide-subtitle">Quantifying Operational Cash Flow Efficiency</p>
+                <div class="grid-2">
+                    <div class="card card-highlight">
+                        <div class="card-title">EBITDA Governance Formula</div>
+                        <div class="formula-box">
+                            EBITDA = Gross Revenue - Total OpEx
+                        </div>
+                        <div class="formula-box">
+                            R 109,328,500 - R 42,900,000 = R 66,428,500
+                        </div>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Clear financial math validating high operational earnings before interest and tax.
+                        </div>
+                    </div>
+                    <div class="card card-gold">
+                        <div class="card-title">Operating Cash Flow Metrics</div>
+                        <div class="metric-value">60.8%</div>
+                        <div class="metric-label">EBITDA Conversion Margin</div>
+                        <p class="card-body" style="margin-top: 10px;">Strong structural margins ensure robust debt serviceability and rapid equity capital recovery.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Exceptional operating cash flow velocity drives project bankability.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 8 -->
+            <div class="slide" data-slide-title="Capital Structuring and Debt Serviceability">
+                <h2 class="slide-title">Capital Structuring &amp; Debt Serviceability</h2>
+                <p class="slide-subtitle">Blended Financing Strategy and Debt Metrics</p>
+                <div class="grid-3">
+                    <div class="card card-blue">
+                        <div class="card-title">70% Senior Debt</div>
+                        <div class="metric-value" style="font-size: 1.8rem;">R 126.78M</div>
+                        <p class="card-body">Commercial infrastructure debt amortized over 10 years at prime benchmark rates.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Optimized leverage utilizing long-term institutional debt.
+                        </div>
+                    </div>
+                    <div class="card card-purple">
+                        <div class="card-title">30% Sponsor Equity</div>
+                        <div class="metric-value" style="font-size: 1.8rem;">R 54.33M</div>
+                        <p class="card-body">Equity injection from project sponsors and development finance institutions (DFIs).</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Balanced risk sharing with aligned institutional sponsors.
+                        </div>
+                    </div>
+                    <div class="card card-emerald">
+                        <div class="card-title">DSCR Coverage</div>
+                        <div class="metric-value" style="font-size: 1.8rem;">1.62x</div>
+                        <p class="card-body">Comfortably exceeds standard lender minimum requirement of 1.40x.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> High debt service coverage ratio guarantees financial security.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 9 -->
+            <div class="slide" data-slide-title="Investment Return Metrics and Payback Modeling">
+                <h2 class="slide-title">Investment Return Metrics &amp; Payback Modeling</h2>
+                <p class="slide-subtitle">Key Performance Indicators for Sponsor Evaluation</p>
+                <div class="card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Financial Performance Metric</th>
+                                <th>Model Output</th>
+                                <th>Investment Target Benchmark</th>
+                                <th>Status / Quality</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Simple Payback Period</strong></td>
+                                <td>2.73 Years</td>
+                                <td>&lt; 4.00 Years</td>
+                                <td style="color: var(--accent-green);">Exceeds Target</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Project Internal Rate of Return (IRR)</strong></td>
+                                <td>22.4%</td>
+                                <td>18.0% - 20.0%</td>
+                                <td style="color: var(--accent-green);">Exceeds Target</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Equity Internal Rate of Return (IRR)</strong></td>
+                                <td>28.6%</td>
+                                <td>&gt; 24.0%</td>
+                                <td style="color: var(--accent-green);">Exceeds Target</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Debt Service Coverage Ratio (DSCR)</strong></td>
+                                <td>1.62x</td>
+                                <td>≥ 1.40x</td>
+                                <td style="color: var(--accent-green);">Compliant</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="teachability-narrator-box" style="margin-top: 10px;">
+                        <strong>Narrator Insight:</strong> Superior return profiles demonstrate high attractiveness for private equity and DFI investors.
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 10 -->
+            <div class="slide" data-slide-title="Financial Sensitivity and Stress Testing">
+                <h2 class="slide-title">Financial Sensitivity &amp; Stress Testing</h2>
+                <p class="slide-subtitle">Evaluating Margin Resiliency Against Economic Volatility</p>
+                <div class="card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Stress Scenario Stress Factor</th>
+                                <th>Impact on Annual Revenue</th>
+                                <th>Revised Annual EBITDA</th>
+                                <th>Adjusted DSCR</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Base Case Model</strong></td>
+                                <td>R 109.33M</td>
+                                <td>R 66.43M</td>
+                                <td>1.62x</td>
+                            </tr>
+                            <tr>
+                                <td><strong>10% Drop in Power Tariff</strong></td>
+                                <td>R 102.68M (-R 6.65M)</td>
+                                <td>R 59.78M</td>
+                                <td>1.46x</td>
+                            </tr>
+                            <tr>
+                                <td><strong>15% Increase in Feedstock OpEx</strong></td>
+                                <td>R 109.33M (Unchanged)</td>
+                                <td>R 64.57M</td>
+                                <td>1.57x</td>
+                            </tr>
+                            <tr>
+                                <td><strong>20% Lower Fertilizer Sales</strong></td>
+                                <td>R 105.01M (-R 4.32M)</td>
+                                <td>R 62.11M</td>
+                                <td>1.51x</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="teachability-narrator-box" style="margin-top: 10px;">
+                        <strong>Narrator Insight:</strong> Stress tests confirm that DSCR remains above the 1.40x threshold even under severe market shocks.
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 11 -->
+            <div class="slide" data-slide-title="Commercial Execution Roadmap">
+                <h2 class="slide-title">Commercial Execution Roadmap</h2>
+                <p class="slide-subtitle">Milestones from Financial Close to First Revenue</p>
+                <div class="grid-3">
+                    <div class="card card-highlight">
+                        <div class="card-title">Month 0</div>
+                        <p class="card-body">Financial Close, debt drawdown, EPC contract execution, long-lead equipment procurement.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Formalizes financial agreements and initiates project mobilization.
+                        </div>
+                    </div>
+                    <div class="card card-gold">
+                        <div class="card-title">Month 1 - 10</div>
+                        <p class="card-body">Civil construction, structural assembly, MEP installation, telemetry network setup.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Intensive engineering execution phase across civil and mechanical domains.
+                        </div>
+                    </div>
+                    <div class="card card-emerald">
+                        <div class="card-title">Month 11 - 12</div>
+                        <p class="card-body">Cold/Hot commissioning, 72-hour performance run, FAC sign-off, commercial billing activation.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Final handover and activation of recurring commercial revenue streams.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 12 -->
+            <div class="slide active" data-slide-title="Module Certification and Financial Governance">
+                <div class="title-slide-content">
+                    <p style="color: var(--accent-green); font-weight: 600; letter-spacing: 2px; margin-bottom: 10px;">MODULE 7 COMPLETE • SCAPUSH PRECISION</p>
+                    <h1 style="font-size: 2.2rem;">Financial Architecture Certified</h1>
+                    <p class="slide-subtitle" style="text-align: center; font-size: 1.3rem; color: #ffffff;">Fully Bankable, Investor-Ready &amp; High-Velocity Operation</p>
+                    
+                    <div class="card card-highlight" style="margin-top: 20px; text-align: left;">
+                        <div class="grid-2">
+                            <div>
+                                <p class="card-title" style="font-size: 0.95rem;">System Architect &amp; Contact</p>
+                                <p class="card-body">Sipho Wiseman Khuzwayo</p>
+                                <p class="card-body">siphokhuzwayo12@gmail.com</p>
+                            </div>
+                            <div>
+                                <p class="card-title" style="font-size: 0.95rem;">Execution Governance</p>
+                                <p class="card-body">Precision Alliance Financial Engineering | Commercial Structuring</p>
+                                <p class="card-body">Scapush Precision Execution Standard</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <div>Scapush Precision Execution | Lwandile Engineering Projects</div>
+            <div class="controls">
+                <button class="btn" id="prevBtn" onclick="changeSlide(-1)">Previous</button>
+                <span class="slide-counter" id="slideCounter">12 / 12</span>
+                <button class="btn" id="nextBtn" onclick="changeSlide(1)">Next</button>
+            </div>
+            <div>Architect: Sipho Wiseman Khuzwayo</div>
+        </footer>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const slideCounter = document.getElementById('slideCounter');
+        let isSpeaking = false;
+
+        function showSlide(index) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                document.getElementById('narrateBtn').textContent = '🔊 Read Current Slide Aloud';
+            }
+
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+            slideCounter.textContent = `${index + 1} / ${slides.length}`;
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) {
+                currentSlide = slides.length - 1;
+            } else if (currentSlide >= slides.length) {
+                currentSlide = 0;
+            }
+            showSlide(currentSlide);
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight' || event.key === ' ') {
+                changeSlide(1);
+            } else if (event.key === 'ArrowLeft') {
+                changeSlide(-1);
+            }
+        });
+
+        function narrateCurrentSlide() {
+            if (!('speechSynthesis' in window)) {
+                alert('Text-to-speech is not supported by your browser.');
+                return;
+            }
+
+            const btn = document.getElementById('narrateBtn');
+
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                btn.textContent = '🔊 Read Current Slide Aloud';
+                return;
+            }
+
+            const activeSlideElement = slides[currentSlide];
+            const slideTitle = activeSlideElement.getAttribute('data-slide-title') || `Slide ${currentSlide + 1}`;
+            
+            const textNodes = activeSlideElement.querySelectorAll('h1, h2, h3, .card-title, .card-body, .metric-value, .metric-label, td, li, .teachability-narrator-box, .formula-box');
+            let slideNarration = `Slide ${currentSlide + 1}: ${slideTitle}. `;
+
+            textNodes.formatNode = node => {
+                const cleanText = node.innerText.replace(/[\n\r]+/g, ' ').trim();
+                if (cleanText) {
+                    slideNarration += cleanText + '. ';
+                }
+            };
+
+            textNodes.forEach(node => {
+                const cleanText = node.innerText.replace(/[\n\r]+/g, ' ').trim();
+                if (cleanText) {
+                    slideNarration += cleanText + '. ';
+                }
+            });
+
+            const utterance = new SpeechSynthesisUtterance(slideNarration);
+            utterance.lang = 'en-US';
+            utterance.volume = 1.0; 
+            utterance.rate = 0.95;  
+            utterance.pitch = 1.0;
+
+            const voices = window.speechSynthesis.getVoices();
+            const preferredVoice = voices.find(v => v.lang.includes('en') && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Microsoft')));
+            if (preferredVoice) {
+                utterance.voice = preferredVoice;
+            }
+
+            utterance.onend = function() {
+                isSpeaking = false;
+                btn.textContent = '🔊 Read Current Slide Aloud';
+            };
+
+            utterance.onerror = function() {
+                isSpeaking = false;
+                btn.textContent = '🔊 Read Current Slide Aloud';
+            };
+
+            isSpeaking = true;
+            btn.textContent = '⏹️ Stop Narration';
+            
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.speak(utterance);
+        }
+
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.onvoiceschanged = function() {
+                window.speechSynthesis.getVoices();
+            };
+        }
+    </script>
+
+</body></html>

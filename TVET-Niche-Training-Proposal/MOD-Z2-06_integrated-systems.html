@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)file:///C:/Users/ASUS/Downloads/gemini-code-1791968003026.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOD-Z2-06: Integrated Systems Engineering &amp; Commissioning Architecture</title>
+    <style>
+        :root {
+            --bg-primary: #0a0e14;
+            --bg-card: #121820;
+            --bg-card-alt: #1a222d;
+            --accent-green: #00e676;
+            --accent-gold: #ffb300;
+            --accent-blue: #00e5ff;
+            --accent-purple: #b388ff;
+            --text-primary: #f0f4f8;
+            --text-secondary: #94a3b8;
+            --border-color: #24303f;
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-family);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            max-width: 1600px;
+            max-height: 950px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 30px 40px;
+            background: radial-gradient(circle at top right, #1a2636 0%, var(--bg-primary) 60%);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .brand-logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo::before {
+            content: '';
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background-color: var(--accent-green);
+            border-radius: 2px;
+        }
+
+        .header-center-tools {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .narrate-slide-btn {
+            background: rgba(179, 136, 255, 0.15);
+            border: 1px solid var(--accent-purple);
+            color: var(--accent-purple);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .narrate-slide-btn:hover {
+            background: var(--accent-purple);
+            color: #000;
+        }
+
+        .module-badge {
+            background: rgba(179, 136, 255, 0.1);
+            border: 1px solid var(--accent-purple);
+            color: var(--accent-purple);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .slide-viewport {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            justify-content: center;
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        .slide-subtitle {
+            font-size: 1.05rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            position: relative;
+            transition: border-color 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--accent-purple);
+        }
+
+        .card-highlight {
+            border-top: 3px solid var(--accent-green);
+        }
+
+        .card-gold {
+            border-top: 3px solid var(--accent-gold);
+        }
+
+        .card-blue {
+            border-top: 3px solid var(--accent-blue);
+        }
+
+        .card-purple {
+            border-top: 3px solid var(--accent-purple);
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .card-body {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Teachability Narrator Box */
+        .teachability-narrator-box {
+            margin-top: 15px;
+            background: rgba(179, 136, 255, 0.05);
+            border-left: 3px solid var(--accent-purple);
+            padding: 10px 14px;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.88rem;
+            color: var(--text-primary);
+            line-height: 1.45;
+        }
+
+        .teachability-narrator-box strong {
+            color: var(--accent-purple);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .metric-value {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--accent-purple);
+            line-height: 1.1;
+            margin: 6px 0;
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .formula-box {
+            background: var(--bg-card-alt);
+            border: 1px solid var(--accent-purple);
+            border-radius: 6px;
+            padding: 10px;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            color: var(--accent-purple);
+            margin: 10px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 5px;
+        }
+
+        th, td {
+            padding: 10px 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--bg-card-alt);
+            color: var(--accent-gold);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        td {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+
+        tr:nth-child(even) td {
+            background-color: rgba(255, 255, 255, 0.01);
+        }
+
+        ul.tech-list {
+            list-style: none;
+        }
+
+        ul.tech-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        ul.tech-list li::before {
+            content: '■';
+            position: absolute;
+            left: 0;
+            color: var(--accent-purple);
+            font-size: 0.75rem;
+            top: 2px;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 12px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .controls {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .btn {
+            background: var(--bg-card-alt);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 6px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--accent-purple);
+            color: #000;
+            border-color: var(--accent-purple);
+        }
+
+        .slide-counter {
+            font-weight: 600;
+            color: var(--accent-gold);
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .title-slide-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .title-slide-content h1 {
+            font-size: 2.8rem;
+            line-height: 1.15;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .meta-table {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 25px;
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-item .label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .meta-item .value {
+            font-size: 1rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="presentation-container">
+        <header>
+            <div class="brand-logo">Lwandile Engineering Projects</div>
+            <div class="header-center-tools">
+                <button class="narrate-slide-btn" id="narrateBtn" onclick="narrateCurrentSlide()">🔊 Read Current Slide Aloud</button>
+                <div class="module-badge">MOD-Z2-06 | NQF 6</div>
+            </div>
+        </header>
+
+        <div class="slide-viewport">
+
+            <!-- SLIDE 1 -->
+            <div class="slide" data-slide-title="Capstone System Synthesis Overview">
+                <div class="title-slide-content">
+                    <p style="color: var(--accent-purple); font-weight: 600; letter-spacing: 2px; margin-bottom: 10px;">CAPSTONE SYSTEM SYNTHESIS • SCAPUSH PRECISION</p>
+                    <h1>Integrated Systems Engineering &amp; Commissioning Architecture</h1>
+                    <p class="slide-subtitle" style="text-align: center;">End-to-End Plant Integration, Cold/Hot Commissioning Protocols &amp; Performance Handover</p>
+                    
+                    <div class="meta-table">
+                        <div class="meta-item">
+                            <div class="label">System Architect</div>
+                            <div class="value">Sipho Wiseman Khuzwayo</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="label">Unit Standard</div>
+                            <div class="value">US 15222 / US 243058</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="label">NQF Level</div>
+                            <div class="value">Level 6</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="label">Credits &amp; Weight</div>
+                            <div class="value">40 Credits (Capstone)</div>
+                        </div>
+                    </div>
+                    <div class="teachability-narrator-box" style="text-align: left; margin-top: 20px;">
+                        <strong>Teachability Narrator:</strong> Welcome to Module Z2-06, architected under the leadership of Sipho Wiseman Khuzwayo and executed via Scapush Precision standards. This module serves as the capstone system synthesis for end-to-end plant commissioning.
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 2 -->
+            <div class="slide" data-slide-title="Executive Summary and Capstone Scope">
+                <h2 class="slide-title">Executive Summary &amp; Capstone Scope</h2>
+                <p class="slide-subtitle">Unifying Hydronics, Automation, Commercial Velocity, and Safety</p>
+                <div class="grid-2">
+                    <div class="card card-purple">
+                        <div class="card-title">Integration Objectives</div>
+                        <ul class="tech-list">
+                            <li>Synthesizing multi-disciplinary engineering domains into a unified operating facility.</li>
+                            <li>Executing rigorous cold, hot, and performance-guarantee commissioning protocols.</li>
+                            <li>Verifying full telemetry, PLC closed-loop control, and safety interlocks under load.</li>
+                            <li>Achieving commercial handover and contractual Performance Acceptance Sign-off.</li>
+                        </ul>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Unifies all prior engineering modules into a fully functional, revenue-generating facility.
+                        </div>
+                    </div>
+                    <div class="card card-gold">
+                        <div class="card-title">Overall System Target</div>
+                        <div class="metric-value">100%</div>
+                        <div class="metric-label">Operational Availability Benchmark</div>
+                        <p class="card-body" style="margin-top: 6px;">Validates all engineering assumptions across Modules 1–5, establishing full operational readiness in Kinross and Secunda.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Demands absolute reliability and systemic alignment across regional infrastructure.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 3 -->
+            <div class="slide" data-slide-title="Commissioning Lifecycle Methodology">
+                <h2 class="slide-title">Commissioning Lifecycle Methodology</h2>
+                <p class="slide-subtitle">Four-Phase Structured Quality Assurance Standard</p>
+                <div class="card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Phase</th>
+                                <th>Lifecycle Stage</th>
+                                <th>Key Verification Tasks</th>
+                                <th>Sign-off Gate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Phase 1</strong></td>
+                                <td>Pre-Commissioning (Cold)</td>
+                                <td>Hydrostatic line tests, point-to-point loop checks, rotation checks, dry stroke testing.</td>
+                                <td>Ready for Energization (RFE)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Phase 2</strong></td>
+                                <td>Hot Commissioning</td>
+                                <td>Fluid loading, thermal ramp-up, live gas introduction, PID tuning under process load.</td>
+                                <td>Ready for Startup (RFSU)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Phase 3</strong></td>
+                                <td>Performance Testing</td>
+                                <td>72-hour continuous full-capacity run, mass-energy balance audit, emissions compliance.</td>
+                                <td>Provisional Acceptance (PAC)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Phase 4</strong></td>
+                                <td>Commercial Handover</td>
+                                <td>As-built P&amp;ID documentation transfer, operator handoff, warranty period start.</td>
+                                <td>Final Acceptance (FAC)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="teachability-narrator-box" style="margin-top: 10px;">
+                        <strong>Narrator Insight:</strong> Structured sign-off gates ensure complete quality control before advancing to live operation phases.
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 4 -->
+            <div class="slide" data-slide-title="Pre-Commissioning and Cold Loop Testing">
+                <h2 class="slide-title">Pre-Commissioning &amp; Cold Loop Testing</h2>
+                <p class="slide-subtitle">Un-energized Mechanical &amp; Electrical Integrity Verification</p>
+                <div class="grid-2">
+                    <div class="card card-highlight">
+                        <div class="card-title">Mechanical &amp; Piping Line Checks</div>
+                        <ul class="tech-list">
+                            <li><strong>Hydrostatic Testing:</strong> Pressurizing loop piping to 1.5× design pressure for 4 hours.</li>
+                            <li><strong>Flushing &amp; Cleaning:</strong> Water high-velocity flush to clear debris prior to membrane loading.</li>
+                            <li><strong>Alignment Verification:</strong> Laser alignment of all pump and agitator shaft couplings.</li>
+                        </ul>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Validates mechanical containment strength prior to fluid introduction.
+                        </div>
+                    </div>
+                    <div class="card card-blue">
+                        <div class="card-title">Electrical &amp; I&amp;C Cold Audits</div>
+                        <ul class="tech-list">
+                            <li><strong>Megger Insulation Checks:</strong> Motor winding dielectric strength tests.</li>
+                            <li><strong>Dry I/O Simulation:</strong> Forcing PLC digital and analog points to verify SCADA graphics.</li>
+                            <li><strong>Valve Stroke Calibration:</strong> Confirming 0–100% actuator response and limit switch feedback.</li>
+                        </ul>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Ensures control logic and electrical insulation are flawless prior to power energization.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 5 -->
+            <div class="slide" data-slide-title="Hot Commissioning and Thermal Ramp-Up">
+                <h2 class="slide-title">Hot Commissioning &amp; Thermal Ramp-Up</h2>
+                <p class="slide-subtitle">Live Fluid Introduction &amp; Closed-Loop Balancing</p>
+                <div class="grid-2">
+                    <div class="card card-purple">
+                        <div class="card-title">Controlled Thermal Stabilization</div>
+                        <p class="card-body">Gradual heat-up of the hydronic reclamation loop at maximum rates of 5°C/hour to prevent thermal shock in heat exchangers and reactor linings.</p>
+                        <div class="formula-box">
+                            dT/dt ≤ 5°C / hr
+                        </div>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Prevents structural material fatigue through controlled thermal gradients.
+                        </div>
+                    </div>
+                    <div class="card card-gold">
+                        <div class="card-title">Process Variable Loop Tuning</div>
+                        <ul class="tech-list">
+                            <li>Dynamic PID loop optimization for pH, flow rate, and pressure control under real fluid viscosity.</li>
+                            <li>Verifying anti-surge controls on compressors and main transfer pumps.</li>
+                            <li>Testing automated blowdown valve sequencing at designated solute threshold limits.</li>
+                        </ul>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Fine-tunes automation responsiveness under actual operating viscosities.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 6 -->
+            <div class="slide" data-slide-title="End-To-End System Mass-Energy Balance Verification">
+                <h2 class="slide-title">End-To-End System Mass-Energy Balance Verification</h2>
+                <p class="slide-subtitle">Reconciling Real-World Performance with System Engineering Models</p>
+                <div class="grid-3">
+                    <div class="card card-highlight">
+                        <div class="card-title">Water Balance Audit</div>
+                        <p class="card-body">Measuring actual recovery rates against design expectations (Target: ≥ 92% hydronic reclamation efficiency).</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Verifies water conservation and hydronic efficiency targets.
+                        </div>
+                    </div>
+                    <div class="card card-blue">
+                        <div class="card-title">Energy Yield Audit</div>
+                        <p class="card-body">Quantifying net thermal energy output from process heat exchangers vs. auxiliary parasitic power consumption.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Assesses net energy efficiency and parasitic load ratios.
+                        </div>
+                    </div>
+                    <div class="card card-purple">
+                        <div class="card-title">Mass Discrepancy Gate</div>
+                        <p class="card-body">Ensuring closed-loop mass balance error margin remains below ± 1.5% across all metering nodes.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Strict mathematical threshold ensuring mass conservation compliance.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 7 -->
+            <div class="slide" data-slide-title="Full Scale Safety Interlock and Cause-and-Effect Testing">
+                <h2 class="slide-title">Full Scale Safety Interlock &amp; Cause-and-Effect Testing</h2>
+                <p class="slide-subtitle">Validating Emergency Shutdown (ESD) Systems under Simulated Faults</p>
+                <div class="card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Simulated Fault Condition</th>
+                                <th>Initiating Sensor Signal</th>
+                                <th>Automated Cause-and-Effect Logic</th>
+                                <th>Required Response Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Combustible Gas Release</strong></td>
+                                <td>ATEX Sniffer &gt; 15% LEL</td>
+                                <td>Isolate main fuel feed valve, activate emergency extraction fans, signal site alarm.</td>
+                                <td>&lt; 1.5 Seconds</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Over-Pressure Surge</strong></td>
+                                <td>Pressure Transmitter PT-104 High-High</td>
+                                <td>Trip main pump, open fast-acting relief divert valve to dump tank.</td>
+                                <td>&lt; 0.8 Seconds</td>
+                            </tr>
+                            <tr>
+                                <td><strong>PLC Network Loss</strong></td>
+                                <td>Watchdog Timer Timeout</td>
+                                <td>Fail-safe drive fallback, lock control valves in last safe state, engage mechanical spring closures.</td>
+                                <td>&lt; 0.05 Seconds</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="teachability-narrator-box" style="margin-top: 10px;">
+                        <strong>Narrator Insight:</strong> Proves automated safety systems react within strict millisecond thresholds to protect site assets.
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 8 -->
+            <div class="slide" data-slide-title="72-Hour Continuous Performance Demonstration">
+                <h2 class="slide-title">72-Hour Continuous Performance Demonstration</h2>
+                <p class="slide-subtitle">Final Commercial Reliability &amp; Capability Verification</p>
+                <div class="grid-2">
+                    <div class="card card-gold">
+                        <div class="card-title">Performance Guarantee Metrics</div>
+                        <ul class="tech-list">
+                            <li><strong>Uninterrupted Run Time:</strong> 72 consecutive hours at 100% rated design throughput.</li>
+                            <li><strong>Product Quality Compliance:</strong> Process water purity and fertilizer composition strictly within spec.</li>
+                            <li><strong>Automated Operation:</strong> Zero manual operator interventions required during steady-state run.</li>
+                        </ul>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Endurance testing proves sustained autonomous operation capability.
+                        </div>
+                    </div>
+                    <div class="card card-purple">
+                        <div class="card-title">Data Historian Audit</div>
+                        <p class="card-body">Every telemetry channel is logged at 1 Hz resolution to the cloud historian. All parameters are compiled into the final System Performance Guarantee Certificate.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Immutable high-frequency logging backs up performance guarantee claims.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 9 -->
+            <div class="slide" data-slide-title="Integrated Digital Twin and Telemetry Handover">
+                <h2 class="slide-title">Integrated Digital Twin &amp; Telemetry Handover</h2>
+                <p class="slide-subtitle">Transitioning Field Operations to Cloud Predictive Maintenance</p>
+                <div class="grid-3">
+                    <div class="card card-highlight">
+                        <div class="card-title">Digital Twin Model</div>
+                        <p class="card-body">Calibrating virtual system models using real commissioning data for predictive operational simulation.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Bridges physical plant data with virtual predictive simulations.
+                        </div>
+                    </div>
+                    <div class="card card-blue">
+                        <div class="card-title">ArIoT Integration</div>
+                        <p class="card-body">Final binding of field node MAC addresses to the central enterprise monitoring dashboard.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Secures cloud connectivity and remote telemetry visibility.
+                        </div>
+                    </div>
+                    <div class="card card-purple">
+                        <div class="card-title">Automated Reporting</div>
+                        <p class="card-body">Enabling automated shift summary, maintenance alert, and ESG compliance report generation.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Streamlines regulatory compliance and management reporting.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 10 -->
+            <div class="slide" data-slide-title="Operational Handover and As-Built Documentation">
+                <h2 class="slide-title">Operational Handover &amp; As-Built Documentation</h2>
+                <p class="slide-subtitle">Transferring Technical Ownership to Site Operations Teams</p>
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-title">As-Built Documentation Package</div>
+                        <ul class="tech-list">
+                            <li>Final red-lined P&amp;IDs and Electrical Single-Line Diagrams (SLDs).</li>
+                            <li>Certified pressure vessel and relief valve calibration certificates.</li>
+                            <li>PLC source code repositories and SCADA configuration backup packages.</li>
+                            <li>Comprehensive Standard Operating Procedures (SOPs) and EOPs.</li>
+                        </ul>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Comprehensive documentation guarantees long-term maintainability.
+                        </div>
+                    </div>
+                    <div class="card card-gold">
+                        <div class="card-title">Operator Competency Handoff</div>
+                        <p class="card-body">Formal qualification of site technicians on shift routine, emergency protocols, and daily preventive maintenance checklists under trainer supervision.</p>
+                        <div class="teachability-narrator-box">
+                            <strong>Narrator Insight:</strong> Equips local operational staff with certified proficiency before handover.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 11 -->
+            <div class="slide" data-slide-title="Commercial Closeout and Value Realization">
+                <h2 class="slide-title">Commercial Closeout &amp; Value Realization</h2>
+                <p class="slide-subtitle">Unlocking Contractual Revenue Velocity Metrics</p>
+                <div class="grid-3">
+                    <div class="card card-highlight">
+                        <div class="card-title">CapEx Reconciled</div>
+                        <div class="metric-value">100%</div>
+                        <p class="card-body">Final cost audit confirming capital expenditure aligned within project budget constraints.</p>
+                    </div>
+                    <div class="card card-gold">
+                        <div class="card-title">Off-take Activation</div>
+                        <div class="metric-value">Active</div>
+                        <p class="card-body">Commercial billing triggered automatically via verified delivery telemetry.</p>
+                    </div>
+                    <div class="card card-purple">
+                        <div class="card-title">FAC Certification</div>
+                        <div class="metric-value">Signed</div>
+                        <p class="card-body">Final Acceptance Certificate executed, releasing retention funds and initiating warranty.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 12 -->
+            <div class="slide active" data-slide-title="Module Certification and Execution Governance">
+                <div class="title-slide-content">
+                    <p style="color: var(--accent-purple); font-weight: 600; letter-spacing: 2px; margin-bottom: 10px;">CURRICULUM COMPLETE • SCAPUSH PRECISION</p>
+                    <h1 style="font-size: 2.2rem;">Scapush Precision Framework Fully Executed</h1>
+                    <p class="slide-subtitle" style="text-align: center; font-size: 1.3rem; color: #ffffff;">Integrated, Commissioned, Automated &amp; Commercialized</p>
+                    
+                    <div class="card card-purple" style="margin-top: 20px; text-align: left;">
+                        <div class="grid-2">
+                            <div>
+                                <p class="card-title" style="font-size: 0.95rem;">System Architect &amp; Contact</p>
+                                <p class="card-body">Sipho Wiseman Khuzwayo</p>
+                                <p class="card-body">siphokhuzwayo12@gmail.com</p>
+                            </div>
+                            <div>
+                                <p class="card-title" style="font-size: 0.95rem;">Execution Governance</p>
+                                <p class="card-body">Precision Alliance Development Pipeline | Just Energy Transition</p>
+                                <p class="card-body">Scapush Precision Execution Standard</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <div>Scapush Precision Execution | Lwandile Engineering Projects</div>
+            <div class="controls">
+                <button class="btn" id="prevBtn" onclick="changeSlide(-1)">Previous</button>
+                <span class="slide-counter" id="slideCounter">12 / 12</span>
+                <button class="btn" id="nextBtn" onclick="changeSlide(1)">Next</button>
+            </div>
+            <div>Architect: Sipho Wiseman Khuzwayo</div>
+        </footer>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const slideCounter = document.getElementById('slideCounter');
+        let isSpeaking = false;
+
+        function showSlide(index) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                document.getElementById('narrateBtn').textContent = '🔊 Read Current Slide Aloud';
+            }
+
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+            slideCounter.textContent = `${index + 1} / ${slides.length}`;
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) {
+                currentSlide = slides.length - 1;
+            } else if (currentSlide >= slides.length) {
+                currentSlide = 0;
+            }
+            showSlide(currentSlide);
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight' || event.key === ' ') {
+                changeSlide(1);
+            } else if (event.key === 'ArrowLeft') {
+                changeSlide(-1);
+            }
+        });
+
+        function narrateCurrentSlide() {
+            if (!('speechSynthesis' in window)) {
+                alert('Text-to-speech is not supported by your browser.');
+                return;
+            }
+
+            const btn = document.getElementById('narrateBtn');
+
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                btn.textContent = '🔊 Read Current Slide Aloud';
+                return;
+            }
+
+            const activeSlideElement = slides[currentSlide];
+            const slideTitle = activeSlideElement.getAttribute('data-slide-title') || `Slide ${currentSlide + 1}`;
+            
+            const textNodes = activeSlideElement.querySelectorAll('h1, h2, h3, .card-title, .card-body, .metric-value, .metric-label, td, li, .teachability-narrator-box, .formula-box');
+            let slideNarration = `Slide ${currentSlide + 1}: ${slideTitle}. `;
+
+            textNodes.forEach(node => {
+                const cleanText = node.innerText.replace(/[\n\r]+/g, ' ').trim();
+                if (cleanText) {
+                    slideNarration += cleanText + '. ';
+                }
+            });
+
+            const utterance = new SpeechSynthesisUtterance(slideNarration);
+            utterance.lang = 'en-US';
+            utterance.volume = 1.0; 
+            utterance.rate = 0.95;  
+            utterance.pitch = 1.0;
+
+            const voices = window.speechSynthesis.getVoices();
+            const preferredVoice = voices.find(v => v.lang.includes('en') && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Microsoft')));
+            if (preferredVoice) {
+                utterance.voice = preferredVoice;
+            }
+
+            utterance.onend = function() {
+                isSpeaking = false;
+                btn.textContent = '🔊 Read Current Slide Aloud';
+            };
+
+            utterance.onerror = function() {
+                isSpeaking = false;
+                btn.textContent = '🔊 Read Current Slide Aloud';
+            };
+
+            isSpeaking = true;
+            btn.textContent = '⏹️ Stop Narration';
+            
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.speak(utterance);
+        }
+
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.onvoiceschanged = function() {
+                window.speechSynthesis.getVoices();
+            };
+        }
+    </script>
+
+</body></html>
